@@ -7,18 +7,7 @@ describe ATM do
         allow(account).to receive(:balance).and_return(100)
         allow(account).to receive(:balance=)
     end
-
-    def withdraw(amount, account)
-        case
-        when amount > account.balance
-            return
-        else
-            @funds -= amount
-            account.balance = account.balance - amount
-            { status: true, message: 'success', date: Date.today, amount: amount }
-        end
-    end
-
+    
     it 'has 1000$ on initialize' do
         expect(subject.funds).to eq 1000
     end
@@ -38,4 +27,15 @@ describe ATM do
         expect(subject.funds).to eq 950
     end
 
+end
+
+def withdraw(amount, account)
+    case
+    when amount > account.balance
+        return
+    else
+        @funds -= amount
+        account.balance = account.balance - amount
+        { status: true, message: 'success', date: Date.today, amount: amount }
+    end
 end
