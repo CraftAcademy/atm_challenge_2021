@@ -12,7 +12,6 @@ describe Atm do
     expect(subject.withdraw(45, account)).to eq expected_output
   end
 
-  
   it 'has 1000$ on initialize' do
     expect(subject.funds).to eq 1000
   end
