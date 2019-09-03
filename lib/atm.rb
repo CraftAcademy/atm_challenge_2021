@@ -7,5 +7,6 @@ class ATM
 
     def withdraw(amount, account) 
         @funds -= amount
+        @expected_output = { status: true, message: 'success', date: Date.today, amount: 45 }
     end
 end
