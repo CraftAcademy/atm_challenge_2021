@@ -4,6 +4,18 @@ class ATM
     def initialize
         @funds = 1000
     end
+=begin Do we need this? 
+    def withdraw(amount, account)
+        case
+        when amount > account.balance
+            return
+        else
+            @funds -= amount
+            account.balance = account.balance - amount
+            { status: true, message: 'success', date: Date.today, amount: amount }
+        end
+    end
+=end 
 
     def withdraw(amount, pin_code, account) 
         case
