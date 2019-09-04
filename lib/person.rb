@@ -7,6 +7,10 @@ class Person
         @account = account
     end
 
+    def create_account(attrs = {})
+        @account = Account.new
+    end
+
     private
     def set_name(obj)
         obj == nil ? no_name : @name = obj 
