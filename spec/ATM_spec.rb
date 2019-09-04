@@ -56,4 +56,3 @@ describe ATM do
     end
 
 end
-

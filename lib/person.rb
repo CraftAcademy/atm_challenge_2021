@@ -29,9 +29,9 @@ class Person
     end
 
     def withdraw_funds(args)
-        args[:atm] == nil ? missing_atm : atm = args[:atm]
+        args[:atm]== nil ? missing_atm : atm = args[:atm]
         account = @account
-        amount = args[:amount]
+        amount = [:amount]
         pin = args[:pin]
         response = atm.withdraw(amount, pin, account)
         response[:status] ? increase_cash(response) : response

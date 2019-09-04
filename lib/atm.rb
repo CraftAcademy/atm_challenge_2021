@@ -65,6 +65,4 @@ class ATM
     def account_deactivated?(status)
         status != :active 
     end
-
-
 end
