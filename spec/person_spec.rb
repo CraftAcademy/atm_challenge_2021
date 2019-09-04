@@ -40,13 +40,13 @@ describe Person do
         before { subject.create_account }
     
         it 'can deposit funds' do
-            expect(subject.deposit(100)).to be_truthy
+            expect(subject.deposit_funds(100)).to be_truthy
         end
     end
 
     describe 'can not manage funds if no account has been created' do
         it 'can\'t deposit funds' do
-            expect { subject.deposit(100) }.to raise_error(RuntimeError, 'no account present')
+            expect { subject.deposit_funds(100) }.to raise_error(RuntimeError, 'no account present')
         end
     end
 end

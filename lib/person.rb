@@ -13,6 +13,10 @@ class Person
         @account = Account.new(owner: self)
     end
 
+    def deposit_funds(attrs = {})
+        account != nil ? @cash = 100 : raise('no account present')
+    end
+
     private
     def set_name(obj)
         obj == nil ? no_name : @name = obj 
