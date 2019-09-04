@@ -4,18 +4,6 @@ class ATM
     def initialize
         @funds = 1000
     end
-=begin Do we need this? 
-    def withdraw(amount, account)
-        case
-        when amount > account.balance
-            return
-        else
-            @funds -= amount
-            account.balance = account.balance - amount
-            { status: true, message: 'success', date: Date.today, amount: amount }
-        end
-    end
-=end 
 
     def withdraw(amount, pin_code, account) 
         case
@@ -27,11 +15,15 @@ class ATM
             { status: false, message: 'wrong pin', date: Date.today }
         when card_expired?(account.exp_date)
             { status: false, message: 'card expired', date: Date.today }
-        when account_status?(account.status)
+        when account_deactivated?(account.status)
             { status: false, message: 'account disabled', date: Date.today }
         else
             perform_transaction(amount, account)
         end
+    end
+
+    def account_deactivated?(status)
+        status != :active
     end
 
     private
@@ -70,7 +62,7 @@ class ATM
         Date.strptime(exp_date, '%m/%y') < Date.today
     end
     
-    def account_status?(status)
+    def account_deactivated?(status)
         status != :active 
     end
 

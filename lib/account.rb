@@ -3,11 +3,11 @@ class Account
     attr_accessor :pin_code, :balance, :exp_date, :account_status, :owner
 
     def initialize(attrs = {})
-        @pin_code = '1234'
-        @balance = 1000
+        @pin_code = rand(1000...9999).to_s
+        @balance = 0
         @exp_date = '09/2024'
         @account_status = :active
-        set_owner(attrs[:owner])
+        @owner = set_owner(attrs[:owner])
     end
     
     def set_expire_date
@@ -24,7 +24,7 @@ class Account
 
     private
     def set_owner(obj)
-        obj == nil ? missing_owner : @owner = obj
+        obj == nil ? missing_owner : obj
     end
 
     def missing_owner

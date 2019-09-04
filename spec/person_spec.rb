@@ -38,7 +38,7 @@ describe Person do
         let(:atm) { Atm.new }
     
         before { subject.create_account }
-    
+        
         it 'can deposit funds' do
             expect(subject.deposit_funds(100)).to be_truthy
         end
@@ -47,7 +47,7 @@ describe Person do
     describe 'can not manage funds if no account has been created' do
         
         it 'can\'t deposit funds' do
-            expect { subject.deposit_funds(100) }.to raise_error(RuntimeError, 'no account present')
+            expect { subject.deposit_funds(100) }.to raise_error(RuntimeError, 'No account present')
         end
         
         it 'funds are added to the account balance - deducted from cash' do

@@ -34,26 +34,26 @@ class Person
         amount = args[:amount]
         pin = args[:pin]
         response = atm.withdraw(amount, pin, account)
-        response[:status] == true ? increase_cash(response) : response
-    end
-    
-    def missing_atm
-        raise RuntimeError, 'An ATM is required'
+        response[:status] ? increase_cash(response) : response
     end
 
     def increase_cash(response)
         @cash += response[:amount]
     end
 
-    def missing_account
-        raise RuntimeError, 'No account present'
-    end 
-
     def set_name(name)
         name == nil ? missing_name : name 
     end
-
+    
     def missing_name
-        raise ArgumentError, "A name is required" 
+        raise ArgumentError, 'A name is required' 
+    end
+    
+    def missing_account
+        raise RuntimeError, 'No account present'
+    end 
+    
+    def missing_atm
+        raise RuntimeError, 'An ATM is required'
     end
 end
