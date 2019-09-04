@@ -8,5 +8,8 @@ describe Person do
     expect(subject.name).not_to be nil
   end
 
+  it 'is expected to raise an error if no name is set' do
+    expect(subject.name).not_to be nil
+  end
 
 end
