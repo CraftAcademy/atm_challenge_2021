@@ -3,7 +3,7 @@ class Person
 
     def initialize(attrs= {}) 
         set_name(attrs[:name]) 
-        @cash = 100
+        @cash = 0
         @account = :active
     end
 
