@@ -27,8 +27,9 @@ describe Person do
     end
 
     it 'with himself as an owner' do
-      expect(Subject.account.owner).to be subject
+      expect(subject.account.owner).to be subject
     end
+    
   end
 
 end
