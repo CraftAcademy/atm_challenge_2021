@@ -5,7 +5,7 @@ class ATM
         @funds = 1000
     end
 
-    def withdraw(amount, pin_code, account, status) 
+    def withdraw(amount, pin_code, account) 
         case
         when insufficient_funds_in_account?(amount, account)
             { status: false, message: 'insufficient funds in account', date: Date.today }
@@ -23,7 +23,6 @@ class ATM
     end
 
     private
-
     def insufficient_funds_in_account?(amount, account)
         amount > account.balance
     end
