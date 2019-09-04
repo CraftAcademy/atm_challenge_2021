@@ -1,14 +1,16 @@
+require './lib/account'
+
 class Person
     attr_accessor :name, :cash, :account
 
     def initialize(attrs= {}) 
         set_name(attrs[:name]) 
         @cash = 0
-        @account = account
+        @account = nil
     end
 
     def create_account(attrs = {})
-        @account = Account.new
+        @account = Account.new(owner: self)
     end
 
     private
