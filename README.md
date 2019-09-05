@@ -102,7 +102,8 @@ I should NOT be able to to make a deposit.
 ## Acknowledgements
 The code in this project is based on code from [Craft Academy](https://craftacademy.se).  
 ### Contributors
-[Luca Lobacher](https://github.com/lucamarial)
+[Luca Lobacher](https://github.com/lucamarial)  
+
 [Sverrir Steindorsson](https://github.com/shsteindorsson)
 
 ## License
