@@ -17,8 +17,9 @@ class Person
     @account == nil ? missing_account : deposit_funds(amount)
   end
 
-  def withdraw(argument)
-    withdraw_funds(argument[:amount])
+  def withdraw(args = {})
+    @account == nil ? missing_account : withdraw_funds(args)
+    #withdraw_funds(argument[:amount])
   end
 
   private
@@ -26,6 +27,10 @@ class Person
   def deposit_funds(amount)
     @cash -= amount
     @account.balance += amount
+  end
+
+  def withdraw_funds(args)
+    args[:atm] == nil ? missing_atm : atm = args[:atm]
   end
   
   def set_name(obj)
@@ -40,11 +45,14 @@ class Person
     raise RuntimeError, 'No account present'
   end
 
-  def withdraw_funds(amount)
-    @cash += amount
-    @account.balance -= amount
+  def missing_atm
+    raise RuntimeError, 'An ATM is required'
   end
+ 
+  # def withdraw_funds(amount)
+  #   @cash += amount
+  #   @account.balance -= amount
+  # end
 
-  
 
 end
