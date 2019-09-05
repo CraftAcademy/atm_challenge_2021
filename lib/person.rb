@@ -31,6 +31,8 @@ class Person
 
   def withdraw_funds(args)
     args[:atm] == nil ? missing_atm : atm = args[:atm]
+    @cash += args[:amount]
+    @account.balance -= args[:amount]
   end
   
   def set_name(obj)
