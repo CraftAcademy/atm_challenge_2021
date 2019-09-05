@@ -1,32 +1,4 @@
-<h1>READ ME for ATM-challenge 2019, created by Pia and Becca</h1>
-
-
-<h2>What the code does</h2>
-This code creates an ATM, a person with an account. It allows a person to access their ATM-account, making deposits and withdrawals. The ATM is enabled to state whether the account is active or disabled. The account is enabled to state whether it has the available funds requested to be withdrawn by the person. The ATM can also differentiate between if there is enought money in the ATM to accomodate the requested withdrawal. 
-
-<h2>Dependencies</h2>
-This code uses Ruby and is unit tested with RSpec. We've used Visual Studio Code to access and write the code. It is saved on Github. 
-<h2>Setup</h2>
-Runs in terminals irb ..... more instructions about setup to come???
-
-
-
-<h2>Instructions</h2>
-How to use this software: 
-
-To come.....
-
-<h2>Acknowledgements</h2>
-Thank you google, coffee, pairprogrammers, CraftAcademy coaches and amazing cohort teammates.
-
-
-<h2>Updates/improvements plans</h2>
-We plan to refactor the code. 
-
-<h3>License</h3>
-MIT-license
-
-<h1> User Stories </h1>
+# atm_challenge_2019
 ```
 As a programmer
 In order to produce good quality code
