@@ -50,9 +50,9 @@ describe Person do
             expect(subject.cash).to be 0
         end
 
-        it 'can withdraw funds' do
+        it 'can withdraw funds' do #FAILS
             command = lambda { subject.withdraw(amount: 100, pin: subject.account.pin_code, account: subject.account, atm: atm) }
-            expect (command.call).to be_truthy
+            expect(command.call).to be_truthy
         end
 
         it 'withdraw is expected to raise an error if no ATM is passed in' do
@@ -60,7 +60,7 @@ describe Person do
             expect { command.call }.to raise_error 'An ATM is required'
         end
 
-        it 'funds are added to cash - deducted from account balance' do 
+        it 'funds are added to cash - deducted from account balance' do #FAILS
             subject.cash = 100
             subject.deposit(100)
             subject.withdraw(amount: 100, pin: subject.account.pin_code, account: subject.account, atm: atm)

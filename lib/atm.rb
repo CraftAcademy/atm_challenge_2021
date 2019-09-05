@@ -15,15 +15,15 @@ class ATM
             { status: false, message: 'wrong pin', date: Date.today }
         when card_expired?(account.exp_date)
             { status: false, message: 'card expired', date: Date.today }
-        when account_deactivated?(account.status)
+        when account_deactivated?(account.account_status)
             { status: false, message: 'account disabled', date: Date.today }
         else
             perform_transaction(amount, account)
         end
     end
 
-    def account_deactivated?(status)
-        status != :active
+    def account_deactivated?(account_status)
+        account_status != :active
     end
 
     private
