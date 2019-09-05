@@ -6,7 +6,7 @@ describe Account do
     let(:person) { instance_double('Person', name: 'Noel') }
     subject { described_class.new({owner: person}) }
     
-    it 'is expected to have an owner' do #herreee
+    it 'is expected to have an owner' do 
         expect(subject.owner).to eq person
     end
 
@@ -33,5 +33,4 @@ describe Account do
         Account.deactivate(subject)
         expect(subject.account_status).to eq :deactivated
     end
-
 end

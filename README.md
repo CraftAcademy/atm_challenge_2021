@@ -9,13 +9,14 @@ Becca's: https://github.com/beccaburns/atm_challenge_2019
 This code creates an ATM, a person with an account. It allows a person to access their ATM-account, making deposits and withdrawals. The ATM is enabled to state whether the account is active or disabled. The account is enabled to state whether it has the available funds requested to be withdrawn by the person. The ATM can also differentiate between if there is enought money in the ATM to accomodate the requested withdrawal. 
 
 <h2>Dependencies</h2>
-This code uses Ruby and is unit tested with RSpec. We've used Visual Studio Code to access and write the code. It is saved on Github. 
+This code is written in Ruby and is unit tested with RSpec. It is manually tested through the irb in Terminal. We've used Visual Studio Code to access and write the code. It is saved on GitHub. 
 
 <h2>Setup</h2>
-After you fork the repository, run bundle install in your Terminal and make sure you are in the project folder. That should install RSPEC on your computer.
-Then, from your Terminal go to the project folder and run rspec.
+After you fork the repository, run bundle install in your Terminal and make sure you are in the project folder. That should install RSpec on your computer.
 
-To manually use it through irb in Terminal, open terminal, "cd " your way to the repositorys rootfolder (atm_challenge_2019), and type the word irb into Terminal.
+Then, from your Terminal go to the project folder and run RSpec.
+
+To manually use it through irb in Terminal, open Terminal, "cd " your way to the repository's root-folder (atm_challenge_2019), and type the word "irb" into Terminal.
 
 <h2>Instructions</h2>
 To run the program inside irb in Terminal.
@@ -27,7 +28,8 @@ load './lib/account.rb'
 require 'date'
 ```
 You have now loaded the program properly. 
-The next steps are to:
+
+Next steps:
 - create a new ATM 
 - create a new person of Person class
 - create an account
@@ -98,7 +100,6 @@ As a Bank Customer
 In order to withdraw funds in even amounts
 I want to receive funds in 5, 10 & 20$ bills
 ```
-
 
 ```
 As an ATM operator             

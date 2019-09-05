@@ -3,7 +3,6 @@ require './lib/atm'
 require './lib/account'
 require 'date'
 
-
 describe Person do
 
     subject { described_class.new(name: 'Noel') }
@@ -31,8 +30,8 @@ describe Person do
             expect(subject.account).to be_an_instance_of Account
         end
 
-        it 'with himself as an owner' do #HEERERE
-            expect(subject.account.owner).to be subject #test passes if we put Nil
+        it 'with himself as an owner' do 
+            expect(subject.account.owner).to be subject
         end
     end
 
@@ -52,7 +51,7 @@ describe Person do
             expect(subject.cash).to be 0
         end
 
-        it 'can withdraw funds' do #FAILS
+        it 'can withdraw funds' do 
             command = lambda { subject.withdraw(amount: 100, pin: subject.account.pin_code, account: subject.account, atm: atm) }
             expect(command.call).to be_truthy
         end
