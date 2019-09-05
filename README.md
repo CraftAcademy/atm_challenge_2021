@@ -13,8 +13,6 @@ Gems used: `rspec`
 ## Setup
 ### To obtain the code:  
 `git clone https://github.com/shsteindorsson/atm_challenge_2019.git`  
-### ...with ssh-keys:
-`git clone git@github.com:shsteindorsson/atm_challenge_2019.git`
 
 ### To install dependesies:
 Assuming [Bundler](https://bundler.io/) is installed:  
