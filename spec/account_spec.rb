@@ -6,7 +6,7 @@ describe Account do
     let(:person) { instance_double('Person', name: 'Noel') }
     subject { described_class.new({owner: person}) }
     
-    it 'is expected to have an owner' do
+    it 'is expected to have an owner' do #herreee
         expect(subject.owner).to eq person
     end
 

@@ -22,11 +22,11 @@ class ATM
         end
     end
 
+    private
     def account_deactivated?(account_status)
         account_status != :active
     end
 
-    private
     def insufficient_funds_in_account?(amount, account)
         amount > account.balance
     end
@@ -48,7 +48,6 @@ class ATM
         end
         bills
     end
-    
 
     def insufficient_funds_in_atm?(amount)
         @funds < amount
@@ -60,9 +59,5 @@ class ATM
 
     def card_expired?(exp_date)
         Date.strptime(exp_date, '%m/%y') < Date.today
-    end
-    
-    def account_deactivated?(status)
-        status != :active 
     end
 end

@@ -31,8 +31,8 @@ describe Person do
             expect(subject.account).to be_an_instance_of Account
         end
 
-        it 'with himself as an owner' do
-            expect(subject.account.owner).to be subject
+        it 'with himself as an owner' do #HEERERE
+            expect(subject.account.owner).to be subject #test passes if we put Nil
         end
     end
 
