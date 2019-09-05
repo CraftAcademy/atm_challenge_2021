@@ -1,5 +1,33 @@
-# atm_challenge_2019
+The ATM challenge 2019
+======================
 
+## The code
+
+**TODO**: Add text about the code.
+
+## Dependecies
+The project is written in **Ruby** (v2.6.3).  
+Testing is implemented with **RSpec** (v3.8).  
+Gems used: `rspec`
+
+## Setup
+### To obtain the code:  
+`git clone https://github.com/shsteindorsson/atm_challenge_2019.git`  
+### ...with ssh-keys:
+`git clone git@github.com:shsteindorsson/atm_challenge_2019.git`
+
+### To install dependesies:
+Assuming [Bundler](https://bundler.io/) is installed:  
+Run  `bundler`  from the root folder of the project.
+
+## To run tests
+From the root folder of the project, run:  
+`rspec`  
+
+To run a specific test:  
+`rspec spec/name-of-file_spec.rb`
+
+## The user stories
 ```
 As a programmer
 In order to produce good quality code
@@ -70,3 +98,16 @@ As a Person without a Bank Account,
 In order to prevent me from using the wrong bank account,
 I should NOT be able to to make a deposit.
 ```
+
+## Acknowledgements
+The code in this project is based on code from [Craft Academy](https://craftacademy.se).  
+### Contributors
+[Luca Lobacher](https://github.com/lucamarial)
+[Sverrir Steindorsson](https://github.com/shsteindorsson)
+
+## License
+This project is made available under the [MIT-License](https://opensource.org/licenses/MIT).
+
+<br>
+
+![](https://raw.githubusercontent.com/shsteindorsson/shsteindorsson.github.io/master/images/craft.jpg)
