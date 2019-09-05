@@ -17,6 +17,10 @@ class Person
     @account == nil ? missing_account : deposit_funds(amount)
   end
 
+  def withdraw(argument)
+    withdraw_funds(argument[:amount])
+  end
+
   private
 
   def deposit_funds(amount)
@@ -34,6 +38,11 @@ class Person
 
   def missing_account
     raise RuntimeError, 'No account present'
+  end
+
+  def withdraw_funds(amount)
+    @cash += amount
+    @account.balance -= amount
   end
 
   
