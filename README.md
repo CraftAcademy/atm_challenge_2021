@@ -1,6 +1,8 @@
 The ATM challenge 2019
 ======================
 
+The core functionality of this program is to allow a person to interact with a simplified ATM.
+
 ## The code
 
 The project consists of three main classes; `Atm`, `Account` and `Person`.  
