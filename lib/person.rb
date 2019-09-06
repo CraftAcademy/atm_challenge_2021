@@ -19,7 +19,6 @@ class Person
 
   def withdraw(args = {})
     @account == nil ? missing_account : withdraw_funds(args)
-    #withdraw_funds(argument[:amount])
   end
 
   private
@@ -51,10 +50,4 @@ class Person
     raise RuntimeError, 'An ATM is required'
   end
  
-  # def withdraw_funds(amount)
-  #   @cash += amount
-  #   @account.balance -= amount
-  # end
-
-
 end
