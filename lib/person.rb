@@ -17,21 +17,32 @@ class Person
     @account == nil ? missing_account : deposit_funds(amount)
   end
 
-  def withdraw(args = {})
-    @account == nil ? missing_account : withdraw_funds(args)
+  def withdraw(argument = {})
+    @account == nil ? missing_account : withdraw_funds(argument)
   end
 
   private
 
   def deposit_funds(amount)
-    @cash -= amount
-    @account.balance += amount
+    if @cash >= amount
+      @cash -= amount
+      @account.balance += amount
+    else
+      out_of_cash
+    end
   end
 
-  def withdraw_funds(args)
-    args[:atm] == nil ? missing_atm : atm = args[:atm]
-    @cash += args[:amount]
-    @account.balance -= args[:amount]
+  def withdraw_funds(argument)
+    argument[:atm] == nil ? missing_atm : atm = argument[:atm]
+    account = @account
+    amount = argument[:amount]
+    pin = argument[:pin]
+    reply = atm.withdraw(amount, pin, account)
+    reply[:status] == true ? increase_cash(reply) : reply
+  end
+
+  def increase_cash(reply)
+    @cash += reply[:amount]
   end
   
   def set_name(obj)
@@ -48,6 +59,10 @@ class Person
 
   def missing_atm
     raise RuntimeError, 'An ATM is required'
+  end
+
+  def out_of_cash
+    raise RuntimeError, 'Not enough cash'
   end
  
 end
