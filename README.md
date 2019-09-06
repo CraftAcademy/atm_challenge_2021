@@ -8,10 +8,18 @@ The project consists of three main classes; `Atm`, `Account` and `Person`.
 The **Atm class** contains methods to:
  * check if it (the ATM) possesses sufficient funds 
  * check if the users account balance contains enough to perform the transaction
- * checks if card's pin number matches, expiry date is valid and whether account is disabled
+ * check if card's pin number matches, expiry date is valid and whether account is disabled
  * withdraw money
 
-The Acc...
+The **Account class** contains methods to:
+  * set the expiry date
+  * deactivate the users account
+
+The **Person class** contains methods to:
+  * enable the person to create an account
+  * allow the person to make a deposit if an account exists 
+  * allow the person to withdraw money if an account exists and it is balanced
+
 
 ## Dependecies
 The project is written in **Ruby** (v2.6.3).  
