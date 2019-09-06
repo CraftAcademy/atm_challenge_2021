@@ -3,13 +3,15 @@ The ATM challenge 2019
 
 ## The code
 
-The project consists of three main classes; `Atm`, `Account` and `Person`.
-The Atm class contains methods to:
- * check if it self posesses sufficient funds 
+The project consists of three main classes; `Atm`, `Account` and `Person`.  
+
+The **Atm class** contains methods to:
+ * check if it (the ATM) possesses sufficient funds 
  * check if the users account balance contains enough to perform the transaction
- * 
+ * checks if card's pin number matches, expiry date is valid and whether account is disabled
  * withdraw money
- * 
+
+The Acc...
 
 ## Dependecies
 The project is written in **Ruby** (v2.6.3).  
