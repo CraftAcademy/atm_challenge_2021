@@ -29,7 +29,6 @@ describe Person do
     it 'with himself as an owner' do
       expect(subject.account.owner).to be subject
     end
-    
   end
 
   describe 'can manage funds if an account has been created' do
@@ -63,7 +62,6 @@ describe Person do
       expect(subject.account.balance).to be 0
       expect(subject.cash).to be 100
     end
-
   end
 
   describe 'can not manage funds if no account has been created' do
@@ -71,5 +69,4 @@ describe Person do
       expect { subject.deposit(100) }.to raise_error(RuntimeError, 'No account present')
     end
   end
-
 end

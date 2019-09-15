@@ -31,6 +31,4 @@ subject { described_class.new({owner: person}) }
     subject.deactivate
     expect(subject.account_status).to eq :deactivated
   end
-
-
 end

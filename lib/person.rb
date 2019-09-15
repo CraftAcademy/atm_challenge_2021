@@ -64,5 +64,4 @@ class Person
   def out_of_cash
     raise RuntimeError, 'Not enough cash'
   end
- 
 end
