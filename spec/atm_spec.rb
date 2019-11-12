@@ -10,7 +10,7 @@ describe ATM do
         expect(subject.funds).to eq 950
     end
 
-    let(:account) { instance_double('Account', pin_code: '1234') }
+    let(:account) { instance_double('Account', pin_code: '1234', exp_date: '04/20') }
     before do
         # Before each test we need to add an attribute to `balance`
         # to the `account` object set set the value to `100`
@@ -39,6 +39,12 @@ describe ATM do
     it 'rejects withdraw if the pin is wrong' do
         expected_output = {status: false, message: 'wrong pin', date: Date.today}
         expect(subject.withdraw(50, 9999, account)).to eq expected_output
+    end
+
+    it 'rejects withdraw if the card is expired' do
+        allow(account).to receive(:exp_date).and_return('12/15')
+        expected_output = { status: false, message: 'card expired', date: Date.today }
+        expect(subject.withdraw(6, '1234', account)).to eq expected_output
     end
 
 end
