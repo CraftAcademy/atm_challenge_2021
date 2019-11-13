@@ -12,11 +12,7 @@ describe ATM do
 
     let(:account) { instance_double('Account', pin_code: '1234', exp_date: '04/20', account_status: :active) }
     before do
-        # Before each test we need to add an attribute to `balance`
-        # to the `account` object set set the value to `100`
         allow(account).to receive(:balance).and_return(100)
-        # We also need to allow `account` to receive the new balance
-        # using the setter method `balance`
         allow(account).to receive(:balance=)    
     end
 
