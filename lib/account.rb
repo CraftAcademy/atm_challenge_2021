@@ -1,13 +1,13 @@
 class Account
 
     STANDARD_VALIDITY_YRS = 5
-    attr_accessor :exp_date, :account_status, :owner
+    attr_accessor :exp_date, :account_status, :owner, :pin_code
 
     def initialize(attrs = {})
         @exp_date = set_expire_date
         @account_status = :active
         set_owner(attrs[:owner])
-        
+        @pin_code = randomize_pin
     end
 
     def set_expire_date
@@ -26,6 +26,10 @@ class Account
 
     def missing_owner
         raise "An Account owner is required"
+    end
+
+    def randomize_pin
+        rand(1000..9999)
     end
 
 end
