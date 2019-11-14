@@ -1,10 +1,11 @@
 class Person
-    attr_accessor :name, :cash, :account
+    attr_accessor :name, :cash, :account, :atm
 
     def initialize(attrs = {})
         @name = set_name(attrs[:name])
         @cash = 0
         @account = nil
+        @atm = nil
     end
 
     def set_name(name)
@@ -33,6 +34,12 @@ class Person
     end
 
     def withdraw(args = {})
-        return true
+        args[:atm] == nil ? missing_atm : true
     end
+
+    def missing_atm
+        raise RuntimeError, 'An ATM is required'
+    end
+
+
 end
