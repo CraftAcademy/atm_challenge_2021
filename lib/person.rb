@@ -1,11 +1,13 @@
+require_relative 'account.rb'
+require_relative 'atm.rb'
+
 class Person
-    attr_accessor :name, :cash, :account
+    attr_accessor :name, :cash, :account, :atm
 
     def initialize(attrs = {})
         @name = set_name(attrs[:name])
         @cash = 0
         @account = nil
-        
     end
 
     def create_account
@@ -13,7 +15,7 @@ class Person
     end
 
     def deposit(amount)
-        @account == nil ? missing_account : deposit_funds(amount)
+        @account == nil ? missing_account : check_cash(amount)
     end
 
     def missing_account
@@ -38,13 +40,25 @@ class Person
         raise "A name is required"
     end
 
+    def check_cash(amount)
+        @cash < amount ? insufficient_cash : deposit_funds(amount)
+    end
+
+    def insufficient_cash
+        raise 'Insufficient cash available'
+    end
+
     def deposit_funds(amount)
         account.balance += amount
         @cash -= amount 
     end
 
     def withdraw_funds(args)
-        args[:atm].withdraw(args[:amount], args[:pin], args[:account])
-        @cash += args[:amount]
+        atm_response = args[:atm].withdraw(args[:amount], args[:pin], args[:account])
+        atm_response[:status] == true ? receive_cash(atm_response) : atm_response
+    end
+
+    def receive_cash(atm_response)
+        @cash += atm_response[:amount]
     end
 end

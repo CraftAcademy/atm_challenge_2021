@@ -40,6 +40,7 @@ describe Person do
     let(:atm) { Atm.new }
     before { subject.create_account }
     it 'can deposit funds' do
+      subject.cash = 100
       expect(subject.deposit(100)).to be_truthy
     end
 
@@ -48,6 +49,11 @@ describe Person do
       subject.deposit(100)
       expect(subject.account.balance).to be 100
       expect(subject.cash).to be 0
+    end
+
+    it 'only allow deposit if cash available' do
+      subject.cash = 50
+      expect { subject.deposit(100) }.to raise_error('Insufficient cash available')
     end
 
     it 'can withdraw funds' do
