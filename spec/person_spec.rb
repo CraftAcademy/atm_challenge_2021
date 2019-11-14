@@ -2,6 +2,7 @@ require './lib/person.rb'
 require './lib/atm.rb'
 require './lib/account.rb'
 require 'date'
+require 'pry'
 
 
 describe Person do
@@ -34,7 +35,7 @@ describe Person do
       expect(subject.account.owner).to be subject
     end
   end
-
+ 
   describe 'can manage funds if an account been created' do
     let(:atm) { Atm.new }
     before { subject.create_account }

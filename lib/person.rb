@@ -1,19 +1,11 @@
 class Person
-    attr_accessor :name, :cash, :account, :atm
+    attr_accessor :name, :cash, :account
 
     def initialize(attrs = {})
         @name = set_name(attrs[:name])
         @cash = 0
         @account = nil
-        @atm = nil
-    end
-
-    def set_name(name)
-        name == nil ? missing_name : name
-    end
-
-    def missing_name
-        raise "A name is required"
+        
     end
 
     def create_account
@@ -28,11 +20,6 @@ class Person
         raise RuntimeError, 'No account present'
     end
 
-    def deposit_funds(amount)
-        account.balance += amount
-        @cash -= amount 
-    end
-
     def withdraw(args = {})
         args[:atm] == nil ? missing_atm : withdraw_funds(args)
     end
@@ -41,9 +28,23 @@ class Person
         raise RuntimeError, 'An ATM is required'
     end
 
+    private
+
+    def set_name(name)
+        name == nil ? missing_name : name
+    end
+
+    def missing_name
+        raise "A name is required"
+    end
+
+    def deposit_funds(amount)
+        account.balance += amount
+        @cash -= amount 
+    end
+
     def withdraw_funds(args)
         args[:atm].withdraw(args[:amount], args[:pin], args[:account])
         @cash += args[:amount]
     end
-
 end
