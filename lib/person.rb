@@ -28,6 +28,7 @@ class Person
     end
 
     def deposit_funds(amount)
-        true
+        account.balance += amount
+        @cash -= amount 
     end
 end
