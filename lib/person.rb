@@ -34,7 +34,7 @@ class Person
     end
 
     def withdraw(args = {})
-        args[:atm] == nil ? missing_atm : true
+        args[:atm] == nil ? missing_atm : deposit(-args[:amount])
     end
 
     def missing_atm
