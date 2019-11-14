@@ -31,4 +31,8 @@ class Person
         account.balance += amount
         @cash -= amount 
     end
+
+    def withdraw(args = {})
+        return true
+    end
 end
