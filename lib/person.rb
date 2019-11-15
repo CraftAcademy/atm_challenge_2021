@@ -15,7 +15,7 @@ class Person
     end
 
     def deposit(amount)
-        @account == nil ? missing_account : check_cash(amount)
+        @account == nil ? missing_account : sufficient_cash?(amount)
     end
 
     def missing_account
@@ -23,7 +23,7 @@ class Person
     end
 
     def withdraw(args = {})
-        args[:atm] == nil ? missing_atm : withdraw_funds(args)
+        args[:atm] == nil ? missing_atm : withdraw_cash(args)
     end
 
     def missing_atm
@@ -40,15 +40,15 @@ class Person
         raise "A name is required"
     end
 
-    def check_cash(amount)
-        @cash < amount ? insufficient_cash : deposit_funds(amount)
+    def sufficient_cash?(amount)
+        @cash < amount ? insufficient_cash : deposit_cash(amount)
     end
 
     def insufficient_cash
         raise 'Insufficient cash available'
     end
 
-    def deposit_funds(amount)
+    def deposit_cash(amount)
         account.balance += amount
         @cash -= amount 
     end
