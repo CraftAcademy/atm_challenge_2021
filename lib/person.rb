@@ -53,7 +53,7 @@ class Person
         @cash -= amount 
     end
 
-    def withdraw_funds(args)
+    def withdraw_cash(args)
         atm_response = args[:atm].withdraw(args[:amount], args[:pin], args[:account])
         atm_response[:status] == true ? receive_cash(atm_response) : atm_response
     end

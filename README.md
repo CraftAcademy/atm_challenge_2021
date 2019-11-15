@@ -28,7 +28,7 @@ cd atm_challenge_2019
 ```
 
 #### Install dependencies
-Install RSpec using bundler:
+Install RSpec using bundler if desire to run testing:
 ```
 bundle install
 ````
@@ -57,7 +57,9 @@ person1.cash = <amount>
 # Deposit cash into account
 person1.deposit(<amount>) 
 # Withdraw <amount> from account using atm
-person.withdraw(amount: <amount>, pin: person1.account.pin_code, account: person1.account, atm: atm) 
+person.withdraw(amount: <amount>, pin: person1.account.pin_code, account: person1.account, atm: atm)
+# Check your current balance and account expiry date
+person1  
 ```
 
 ## Acknowledgements
