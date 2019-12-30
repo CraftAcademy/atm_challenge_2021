@@ -1,15 +1,6 @@
 # ATM Challenge 2019
 The program lets you create a Person and an ATM, the Person can create an Account which funds can be deposited to or withdrawn from using the ATM.
 
-## The code
-Something about the Person class?
-
-Something about the Account class?
-
-Something about the Atm class?
-
-Something about TDD/RSpec?
-
 ## Dependencies
 Written in Ruby v2.6.3
 
