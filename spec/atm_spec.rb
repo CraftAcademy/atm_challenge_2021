@@ -11,4 +11,8 @@ describe Atm do
         expect(subject.funds).to eq 950
     end
 
+    it 'respons message if the withdrawl was successful' do
+        expect(subject.funds).to be >= 0
+        expect(result).to contain_exactly("Successful")
+    end
 end
