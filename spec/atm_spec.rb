@@ -14,15 +14,13 @@ describe Atm do
     end
 
     it 'funds are reduced at withdraw' do 
-        subject.withdraw 50
+        subject.withdraw(50, account)
         expect(subject.funds).to eq 950
     end
 
-    it 'respons message if the withdrawl was successful' do
-        subject.withdraw 900
-        expect(subject.funds).to be >= 0
-        expected_output = { status: true, message: 'Successful', date: Time.now.strftime("%Y-%m-%d"), amount: 900 }
-        expect(subject.withdraw(900)).to eq expected_output
+    it 'allow withdraw if the account has enough balance' do
+        expected_output = { status: true, message: 'Successful', date: Time.now.strftime("%Y-%m-%d"), amount: 100 }
+        expect(subject.withdraw(100, account)).to eq expected_output
     end
 
 end
