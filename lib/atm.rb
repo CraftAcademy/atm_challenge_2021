@@ -20,8 +20,3 @@ class Atm
         return result
     end
 end
-
-
-class printReciept(errorCode)
-    @errorCode = errorCode
-end
