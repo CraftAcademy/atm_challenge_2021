@@ -1,7 +1,7 @@
 require './lib/atm.rb'
 
 describe Atm do
-    let(:account) { instance_double('Account', pin_code: '1234', exp_date: '04/21') }
+    let(:account) { instance_double('Account', pin_code: '1234', exp_date: '04/21', account_status: :active) }
 
     before do
       allow(account).to receive(:balance).and_return(100)
@@ -44,5 +44,11 @@ describe Atm do
         expected_output = { status: false, message: 'Unsuccessful because card has expired', date: Date.today }
         expect(subject.withdraw(20, '1234', account)).to eq expected_output
     end
+
+    it 'reject withdraw if the account is inactive' do
+        allow(account).to receive(:account_status).and_return(:inactive)
+        expected_output = { status: false, message: 'Unsuccessful because the account is inactive', date: Date.today}
+        expect(subject.withdraw(20, '1234', account)).to eq expected_output
+    end 
 
 end

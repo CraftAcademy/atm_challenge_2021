@@ -11,6 +11,8 @@ class Atm
     def withdraw(amount, pin_code, account) 
     
         case 
+        when account_inactive?(account.account_status)
+            { status: false, message: 'Unsuccessful because the account is inactive', date: Date.today}
         when insufficient_funds_in_account?(amount, account)
             { status: false, message: 'Unsuccessful because of insufficient funds', date: Date.today}
         when insufficient_funds_in_ATM?(amount)
@@ -46,6 +48,10 @@ class Atm
 
     def card_expired?(exp_date)
         Date.strptime(exp_date, '%m/%y') < Date.today
+    end
+
+    def account_inactive?(account_status)
+        account_status != :active
     end
     
 end
