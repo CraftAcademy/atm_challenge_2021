@@ -19,10 +19,10 @@ describe Atm do
     end
 
     it 'allow withdraw if the account has enough balance' do
-        expected_output = { status: true, message: 'Successful', date: Date.today, amount: 100 }
-        expect(subject.withdraw(100, '1234', account)).to eq expected_output
+        expected_output = { status: true, message: 'Successful', date: Date.today, amount: 95, bills: [20, 20, 20, 20, 10, 5] }
+        expect(subject.withdraw(95, '1234', account)).to eq expected_output
     end
-
+    
     it 'rejects withdraw if the account has insufficient funds' do
         expected_output = { status: false, message: 'Unsuccessful because of insufficient funds', date: Date.today }
         expect(subject.withdraw(105, '1234', account)).to eq expected_output   
@@ -47,8 +47,7 @@ describe Atm do
 
     it 'reject withdraw if the account is inactive' do
         allow(account).to receive(:account_status).and_return(:inactive)
-        expected_output = { status: false, message: 'Unsuccessful because the account is inactive', date: Date.today}
+        expected_output = { status: false, message: 'Unsuccessful because the account is inactive', date: Date.today }
         expect(subject.withdraw(20, '1234', account)).to eq expected_output
     end 
-
 end
