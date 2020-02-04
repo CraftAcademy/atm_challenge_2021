@@ -10,7 +10,7 @@ class Atm
     
         case 
         when insufficient_funds_in_account?(amount, account)
-            return
+            { status: false, message: 'Unsuccessful because of insufficient funds', date: Time.now.strftime("%Y-%m-%d")}
         else
             perform_transaction(amount, account)
         end
@@ -27,4 +27,5 @@ class Atm
         account.balance = account.balance - amount
         { status: true, message: 'Successful', date: Time.now.strftime("%Y-%m-%d"), amount: amount }
     end
+
 end
