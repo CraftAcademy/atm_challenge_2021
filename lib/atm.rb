@@ -11,7 +11,9 @@ class Atm
         case # kollar om det finns pengar på kontot
         when insufficient_funds_in_account?(amount, account)
             { status: false, message: 'insufficient funds', date: Date.today }
-            
+        when insufficient_funds_in_atm?(amount)
+            { status: false, message: 'insufficient funds in ATM', date: Date.today }
+
         else # om pengar finns så får man ta ut pengar
             perform_transaction(amount, account)
         end
@@ -28,7 +30,9 @@ class Atm
         { status: true, message: 'success', date: Date.today, amount: amount }
     end
 
-   
+    def insufficient_funds_in_atm?(amount)
+        @funds < amount
+       end
 
 
 end
