@@ -6,7 +6,7 @@ class Atm
         @funds = 1000
     end
 
-    def withdraw(amount, account)
+    def withdraw(amount, pin_code, account)
         
         case # kollar om det finns pengar på kontot
         when insufficient_funds_in_account?(amount, account)
@@ -33,6 +33,5 @@ class Atm
     def insufficient_funds_in_atm?(amount)
         @funds < amount
        end
-
-
+    
 end
