@@ -17,18 +17,8 @@ describe Atm do
   end
   
   it 'allow whitdraw if the account has enough balance.' do
-    expected_output = { status: true, message: 'success', date: '2020', amount: 45 }
+    expected_output = { status: true, message: 'success', date: Date.today, amount: 45 }
     expect(subject.withdraw(45, account)).to eq expected_output
   end
 
-  def withdraw(amount, account)
-    case 
-    when amount > account.balance
-      return
-    else
-      @funds -= amount
-      account.balance = account.balance - amount
-      { status: true, message: 'success', date: '2020', amount: amount }
-    end
-  end
 end
