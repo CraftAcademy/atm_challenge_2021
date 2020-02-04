@@ -6,13 +6,15 @@ class Atm
         @funds = 1000
     end
 
-    def withdraw(amount, account)
+    def withdraw(amount, pin_code, account) 
     
         case 
         when insufficient_funds_in_account?(amount, account)
             { status: false, message: 'Unsuccessful because of insufficient funds', date: Time.now.strftime("%Y-%m-%d")}
         when insufficient_funds_in_ATM?(amount)
             { status: false, message: 'Unsuccessful because insufficient funds in ATM', date: Time.now.strftime("%Y-%m-%d") }
+        when incorrect_pin?(pin_code, account.pin_code)
+            { status: false, message: 'Unsuccessful because of wrong pin code', date: Time.now.strftime("%Y-%m-%d") }
         else
             perform_transaction(amount, account)
         end
@@ -34,4 +36,7 @@ class Atm
         @funds < amount
     end
 
+    def incorrect_pin?(pin_code, actual_pin)
+        pin_code != actual_pin
+    end 
 end
