@@ -8,6 +8,7 @@ class Account
         @exp_date = set_expire_date()
         @account_status = :active
         @owner = set_owner(attrs[:owner])
+        @balance = 0
     end 
 
     def set_expire_date
@@ -27,6 +28,4 @@ class Account
     def missing_owner
         raise 'An account owner is required'
     end
-
-
 end

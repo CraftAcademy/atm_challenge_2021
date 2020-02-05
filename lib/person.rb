@@ -19,4 +19,8 @@ class Person
         @account = Account.new(owner: name)
     end
 
+    def deposit(amount)
+        account.balance += amount
+    end
+
 end
