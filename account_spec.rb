@@ -26,9 +26,10 @@ describe Account do
 
     it 'is expected to have an owner' do
         expect(subject.owner).to eq Person
+        #expect(subject.person).to eq Person
     end
 
-    
+
     
     
 
