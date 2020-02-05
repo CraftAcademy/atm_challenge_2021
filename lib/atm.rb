@@ -16,7 +16,10 @@ class Atm
         when incorrect_pin?(pin_code, account.pin_code)
             { status: false, message: 'wrong pin', date: Date.today } 
         when card_expired?(account.exp_date)
-            { status: false, message: 'card expired', date: Date.today }  
+            { status: false, message: 'card expired', date: Date.today }
+        
+        when account_disabled?(account.account_status)
+            { status: false, message: 'account disabled', date: Date.today }
 
         else # om pengar finns så får man ta ut pengar
             perform_transaction(amount, account)
@@ -51,5 +54,7 @@ class Atm
     def incorrect_pin?(pin_code, actual_pin)
         pin_code != actual_pin
     end
+
+    def account_disabled?()
     
 end
