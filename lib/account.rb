@@ -7,7 +7,8 @@ class Account
         @pin_code = rand(1000..9999)
         @exp_date = set_expire_date()
         @account_status = :active
-        set_owner(attrs[:owner])
+        @owner = set_owner(attrs[:owner])
+        @balance = 0
     end 
 
     def set_expire_date
@@ -27,6 +28,4 @@ class Account
     def missing_owner
         raise 'An account owner is required'
     end
-
-
 end
