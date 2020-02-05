@@ -2,9 +2,9 @@ class Person
     attr_accessor(:name, :cash, :account)
 
     def initialize(attrs = {})
-        set_name(attrs[:name])
+        @name = set_name(attrs[:name])
         @cash = 0
-        @account 
+        @account = nil
     end
     
     def set_name(obj)
@@ -16,6 +16,7 @@ class Person
     end
 
     def create_account
-        subject = Account.new
+        @account = Account.new(owner: name)
     end
+
 end
