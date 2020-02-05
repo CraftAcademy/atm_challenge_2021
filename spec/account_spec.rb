@@ -5,7 +5,7 @@ describe Account do
     let(:person) {instance_double('Person', name: 'Thomas')}
     subject { described_class.new({owner: person}) }
 
-    it 'check lengt of a number' do
+    it 'check length of a number' do
         number = 1234
         number_length = Math.log10(number).to_i + 1
         expect(number_length).to eq 4
