@@ -8,10 +8,14 @@ class Account
     def initialize 
         @pin_code = rand(1000..9999)
         @exp_date = set_expire_date()
+        @account_status = :active
     end 
 
     def set_expire_date
         Date.today.next_year(Account::STANDARD_VALIDITY_YRS).strftime('%m/%y')
     end
 
+    def inactivate
+        @account_status = :inactive
+    end
 end

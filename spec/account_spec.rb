@@ -14,4 +14,12 @@ describe Account do
         expect(subject.exp_date).to eq expected_date
     end
 
+    it 'is expected to have :active status on initialize' do 
+        expect(subject.account_status).to eq :active
+    end
+
+    it 'deactivates account using the instance method' do
+        subject.inactivate
+        expect(subject.account_status).to eq :inactive
+    end
 end
