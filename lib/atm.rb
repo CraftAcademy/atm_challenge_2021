@@ -42,19 +42,17 @@ class Atm
         @funds < amount
     end
 
-    def incorrect_pin?(pin_code, actual_pin)
-        pin_code != actual_pin
-    end
-
     def card_expired?(exp_date)
         Date.strptime(exp_date, '%m/%y') < Date.today
-      end
+    end
 
 
     def incorrect_pin?(pin_code, actual_pin)
         pin_code != actual_pin
     end
 
-    def account_disabled?()
+    def account_disabled?(account_status)
+        account_status != :active
+    end
     
 end
