@@ -49,5 +49,6 @@ describe Atm do
         allow(account).to receive(:account_status).and_return(:inactive)
         expected_output = { status: false, message: 'Unsuccessful because the account is inactive', date: Date.today }
         expect(subject.withdraw(20, '1234', account)).to eq expected_output
-    end 
+    end
+
 end
