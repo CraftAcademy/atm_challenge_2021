@@ -22,6 +22,7 @@ class Person
     def deposit(amount)
         if @account != nil
             account.balance += amount
+            @cash -= amount
         else
             raise 'No account present'
         end
