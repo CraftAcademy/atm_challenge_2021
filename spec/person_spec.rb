@@ -11,7 +11,7 @@ describe Person do
     end 
 
     it 'is expected to raise an error if no name is set' do 
-        expect { described_class.new }.to raise_error 'A name is required'
+        expect {described_class.new}.to raise_error 'A name is required'
     end
 
     it 'is expected to have a :cash attribute with the value of 0 on initialize' do
@@ -24,10 +24,13 @@ describe Person do
 
     describe 'can create an Account' do 
         
-        before { subject.create_account }
+        before {subject.create_account}
         
             it 'of Account class' do
                 expect(subject.account).to be_an_instance_of Account
             end
-    end
+            it 'with himself as an owner' do 
+                expect(subject.account.owner).to be(subject.name)
+            end 
+        end
 end
