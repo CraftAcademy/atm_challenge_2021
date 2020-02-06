@@ -54,6 +54,7 @@ They are the same so it won't matter which one.
 If you do not have bundler installed:
 > gem install bundler 
 
-## Instructions
+
+
 
 
