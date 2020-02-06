@@ -1,5 +1,6 @@
 require './lib/account.rb'
-#require 'date'
+require 'pry'
+
 
 describe Account do
     let(:person) { instance_double('Person', name: 'Thomas') }
@@ -7,7 +8,7 @@ describe Account do
 
     it 'check the length of a number' do
         number = 1234
-        number_length = ;Math.log10(number).to_i + 1
+        number_length = Math.log10(number).to_i + 1
         expect(number_length).to eq 4
     end
 
@@ -26,8 +27,7 @@ describe Account do
     end
 
     it 'is expected to have an owner' do
-        expect(subject.owner).to eq Person
-        #expect(subject.person).to eq Person
+        expect(subject.owner).to eq person
     end 
 
     it 'is expected to raise error if no owner is set' do
