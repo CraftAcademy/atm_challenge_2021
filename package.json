@@ -1,0 +1,8 @@
+{
+  "name": "atm_challenge_2019",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/dernathul/atm_challenge_2019.git",
+  "author": "dernathul <lautaroparracab@gmail.com>",
+  "license": "MIT"
+}
