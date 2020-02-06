@@ -45,14 +45,14 @@ We therefor used the gem for RSpec and also the gem for Pry-byebug
 ## Setup
 
 To get the code to your local device:
--> git clone https://github.com/emtalen/atm_machine
+> git clone https://github.com/emtalen/atm_machine
 or
--> git clone https://github.com/robin-lillqvist/atm_machine
+> git clone https://github.com/robin-lillqvist/atm_machine
 
 They are the same so it won't matter which one.
 
 If you do not have bundler installed:
--> gem install bundler 
+> gem install bundler 
 
 ## Instructions
 
