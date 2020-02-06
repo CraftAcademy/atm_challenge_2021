@@ -60,7 +60,9 @@ To run our application we require you to have ruby installed on your computer.
 To install Ruby you can use the command 
 > brew install ruby
 
+
 In IRB you can use these commands: 
+
 
 Create your ATM machine with 1000 initially
 > atm = Atm.new
