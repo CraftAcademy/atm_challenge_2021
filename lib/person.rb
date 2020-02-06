@@ -1,5 +1,3 @@
-require './lib/account'
-
 class Person
     attr_accessor(:name, :cash, :account)
 
