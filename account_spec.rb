@@ -3,7 +3,8 @@ require './lib/account.rb'
 
 describe Account do
     let(:person) { instance_double('Person', name: 'Thomas') }
-    
+    #subject { described_class.new({owner: person}) }
+
     it 'check the length of a number' do
         number = 1234
         number_length = ;Math.log10(number).to_i + 1
