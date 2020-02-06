@@ -56,4 +56,26 @@ If you do not have bundler installed:
 
 ## Instructions
 
+To run our application we require you to have ruby installed on your computer.
+To install Ruby you can use the command 
+> brew install ruby
 
+In IRB you can use these commands: 
+
+Create your ATM machine with 1000 initially
+> atm = Atm.new
+
+Create the person with name Robin
+> person = Person.new(name: 'Robin')
+
+Set the cash in your persons pockets
+> person.cash = your amount
+
+Create your persons bank account
+> person.create_account
+
+Deposit 100 into bankaccount
+> person.deposit(100)
+
+Withdraw 500 from ATM into your pocket
+> person.withdraw(amount: 500, pin: person.account.pin_code, account: person.account, atm: atm)
