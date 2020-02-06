@@ -8,9 +8,15 @@ We got instructed to create the back end code of an ATM machine, we use the lang
 >GemFiles
 We use Rspec gemfile for testing our code
 
->Give examples
+>Examples
 Installing Pry and running it will start the program in your terminal
 to finish the program digit >Quit
 
-Command needed during the test
+>Aknowledges
+
+We create this software with the help of our coaches and peers
+
+>Authors
+Mr.Anish
+Mr.Lau
 
