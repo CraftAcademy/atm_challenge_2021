@@ -12,6 +12,17 @@ We use Rspec gemfile for testing our code
 Installing Pry and running it will start the program in your terminal
 to finish the program digit >Quit
 
+>Instructions
+Run this program trough Irb
+   >load   [TO LOAD THE PROGRAM]
+   >atm = Atm.new [TO CREATE A NEW ATM]
+   >person = Person.new(name: 'Name') [TO CREATE A NEW PERSON]
+   >person.create_account   [TO CREATE A NEW ACCOUNT]
+   >person.cash  [TO CHECK THE CASH BALANCE]
+   >person.account.balance [TO CHECK THE ACCOUNT BALANCE]
+   >person.withdraw(amount: 100, pin: pin_number, account: person.account, atm: atm)   [TO WITHDRAW]
+   >quit  [TO FINISH THE PROCESS]
+
 >Aknowledges
 
 We create this software with the help of our coaches and peers
