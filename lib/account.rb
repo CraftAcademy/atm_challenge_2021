@@ -7,7 +7,8 @@ class Account
     def initialize(attrs = {})
         @account_status = :active
         @exp_date = set_expire_date()
-        @owner = set_owner(attrs[:owner]) 
+        @owner = set_owner(attrs[:owner])
+        @pin_code = set_pin_code() 
     end
 
     def deactivate #instance method
@@ -23,6 +24,11 @@ class Account
 
 
     private
+
+    def set_pin_code
+        rand(1000..9999)
+    end
+
     def set_owner(obj)
         obj == nil ?  missing_owner : @owner = obj
     end
