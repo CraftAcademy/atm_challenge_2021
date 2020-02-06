@@ -76,5 +76,4 @@ describe Person do
           expect {subject.deposit(100)}. to raise_error(RuntimeError, 'No account present')
         end
     end 
-
 end
