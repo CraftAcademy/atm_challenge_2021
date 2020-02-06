@@ -46,7 +46,9 @@ We therefor used the gem for RSpec and also the gem for Pry-byebug
 
 To get the code to your local device:
 > git clone https://github.com/emtalen/atm_machine
-or
+
+or this:
+
 > git clone https://github.com/robin-lillqvist/atm_machine
 
 They are the same so it won't matter which one.
