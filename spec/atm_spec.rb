@@ -8,7 +8,6 @@ describe Atm do
       allow(account).to receive(:balance=)
     end
 
-
     it 'has 1000$ on initialize' do
         expect(subject.funds).to eq 1000
     end

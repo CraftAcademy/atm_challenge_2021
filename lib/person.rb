@@ -23,9 +23,8 @@ class Person
     end
 
     def withdraw(args = {})
-    @account == nil ? missing_account : withdraw_funds(args)
+        @account == nil ? missing_account : withdraw_funds(args)
     end
-
 
     private 
 
