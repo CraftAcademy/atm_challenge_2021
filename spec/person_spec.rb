@@ -3,7 +3,6 @@ require './lib/account'
 require './lib/atm'
 
 describe Person do
-    # let(:atm) {instance_double(atm = Atm)}
 
     subject { described_class.new(name: 'Thomas') }
 
