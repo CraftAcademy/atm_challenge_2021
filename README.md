@@ -54,8 +54,7 @@ They are the same so it won't matter which one.
 If you do not have bundler installed:
 > gem install bundler 
 
-
-
+## Instructions
 
 To run our application we require you to have ruby installed on your computer.
 To install Ruby you can use the command 
@@ -82,3 +81,9 @@ Deposit 100 into bankaccount
 
 Withdraw 500 from ATM into your pocket
 > person.withdraw(amount: 500, pin: person.account.pin_code, account: person.account, atm: atm)
+
+## Updates/Improvement plans
+
+Right know we have no plans about updates but the next things to do would be to do the interface file for the user to easier interact with it. 
+
+- #### Licence: MIT-license
