@@ -9,6 +9,7 @@ class Account
         @exp_date = set_expire_date()
         @owner = set_owner(attrs[:owner])
         @pin_code = set_pin_code() 
+        @balance = 0
     end
 
     def deactivate #instance method
