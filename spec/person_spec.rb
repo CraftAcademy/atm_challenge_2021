@@ -69,8 +69,6 @@ describe Person do
     end
   end
 
-  end
-
   describe 'can not manage funds if no account been created' do
     
     it 'can\'t deposit funds' do
