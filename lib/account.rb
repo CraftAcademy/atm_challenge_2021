@@ -19,6 +19,10 @@ class Account
         @account_status = :inactive
     end
 
+    def activate
+        @account_status = :active
+    end
+
     private
     
     def set_owner(obj)
