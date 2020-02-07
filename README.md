@@ -11,7 +11,6 @@ The Rspec gem was used for testing and IRB is needed to run the code.
 
 Setup
 
-In IRB you need to load the rb files
 
 Acknowledgements
 
