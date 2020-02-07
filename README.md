@@ -1,8 +1,11 @@
 # atm_challenge_2019
 
 ## The code
-Checks that the person who wants to make a cash withdraw hs a active account, knows the pin code, has money in the account, has a valid credit card.
-The atm the
+
+This program simulates a ATM
+
+Where a costumer with a active account, valid credtit card, correct pin code and
+money in the account, can make a withdraw. 
 
 User stories:
 
@@ -54,8 +57,22 @@ I need to have a personal account
 Ruby, Rspec
 
 ## Setup
+Download the code from Github:
+
+https://github.com/pgaunitz/atm_challenge_2019
+or
+https://github.com/pauloswardblad/atm_challenge_2019
 
 ## Instructions
 
+- Open irb in your console
+- Load the .rb files from the lib directory
+
+
 ## Acknowledgements
+
+Coursematerial from Craft Academy, Choaches at Craft Academy, github page: CraftOverflow, rubyguides.com
+
+## License
+MIT-license
 
