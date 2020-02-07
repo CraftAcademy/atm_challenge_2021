@@ -1,5 +1,6 @@
 require './lib/person.rb'
-#require '.lib/atm.rb'
+require './lib/atm.rb'
+require './lib/account.rb'
 
 describe Person do
     
@@ -26,6 +27,7 @@ describe Person do
     # to be able to use banking services to manage my funds,
     # I would like to be able to create a bank account
     before { subject.create_account }
+    
     it 'of Account class' do
       expect(subject.account).to be_an_instance_of Account
     end
@@ -37,24 +39,13 @@ describe Person do
 
   describe 'can manage funds if an account been created' do
     let(:atm) { Atm.new }
-    # As a Person with a Bank Account,
-    # in order to be able to put my funds in the account ,
-    # i would like to be able to make a deposit
+    
     before { subject.create_account }
+    
     it 'can deposit funds' do
       expect(subject.deposit(100)).to be_truthy
     end
-  end
-
-  describe 'can not manage funds if no account been created' do
-    # As a Person without a Bank Account,
-    # In order to prevent me from using the wrong bank account,
-    # I should NOT be able to to make a deposit.
-    it 'can\'t deposit funds' do
-      expect { subject.deposit(100) }.to raise_error(RuntimeError, 'No account present')
-    end
-  end
-
+    
     it 'funds are added to the account balance - deducted from cash' do
         subject.cash = 100
         subject.deposit(100)
@@ -62,9 +53,9 @@ describe Person do
         expect(subject.cash).to be 0
     end
 
-    it 'can whithdraw funds' do
-        command = lambda { subject.whithdraw(amount: 100, pin: subject.account.pin_code, account: subject.account, atm: atm) }
-        expect (command.call).to be_truthy
+    it 'can withdraw funds' do
+        command = lambda { subject.withdraw(amount: 100, pin: subject.account.pin_code, account: subject.account, atm: atm) }
+        expect(command.call).to be_truthy
     end
 
     it 'withdraw is expected to raise an error if no ATM is passed in' do
@@ -80,5 +71,15 @@ describe Person do
       expect(subject.cash).to be 100
     end
 
+  end
+
+  describe 'can not manage funds if no account been created' do
+    
+    it 'can\'t deposit funds' do
+      expect { subject.deposit(100) }.to raise_error(RuntimeError, 'No account present')
+    end
+  end
+
+   
 
 end
