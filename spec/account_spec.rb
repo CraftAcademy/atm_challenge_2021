@@ -1,4 +1,4 @@
-require './lib/account.rb'
+require './lib/account'
 require 'pry'
 
 
