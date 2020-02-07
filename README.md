@@ -84,8 +84,15 @@ Deposit 100 into bankaccount
 Withdraw 500 from ATM into your pocket
 > person.withdraw(amount: 500, pin: person.account.pin_code, account: person.account, atm: atm)
 
+Inactivate your persons account
+> person.account.inactivate
+
+Reactivate your persons account
+> person.account.activate
+
 ## Updates/Improvement plans
 
 Right know we have no plans about updates but the next things to do would be to do the interface file for the user to easier interact with it. 
 
-- #### Licence: MIT-license
+## Licence: 
+#### MIT-license
