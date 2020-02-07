@@ -89,4 +89,3 @@ Withdraw 500 from ATM into your pocket
 Right know we have no plans about updates but the next things to do would be to do the interface file for the user to easier interact with it. 
 
 - #### Licence: MIT-license
->>>>>>> bdf2b4796d5a669a647fbfbafcaa4b1d354d5255
