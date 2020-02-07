@@ -1,6 +1,6 @@
 require './lib/person.rb'
 require './lib/atm.rb'
-require './lib/person.rb'
+require './lib/account.rb'
 
 describe Person do
     
@@ -36,12 +36,13 @@ describe Person do
 
   describe 'can manage funds if an account been created' do
     let(:atm) { Atm.new }
+    
     before { subject.create_account }
     
     it 'can deposit funds' do
       expect(subject.deposit(100)).to be_truthy
     end
-
+    
     it 'funds are added to the account balance - deducted from cash' do
         subject.cash = 100
         subject.deposit(100)
@@ -49,7 +50,7 @@ describe Person do
         expect(subject.cash).to be 0
     end
 
-    it 'can whithdraw funds' do
+    it 'can withdraw funds' do
         command = lambda { subject.withdraw(amount: 100, pin: subject.account.pin_code, account: subject.account, atm: atm) }
         expect(command.call).to be_truthy
     end
@@ -68,10 +69,15 @@ describe Person do
     end
   end
 
-    describe 'can not manage funds if no account been created' do
-      it 'can\'t deposit funds' do
-        expect { subject.deposit(100) }.to raise_error(RuntimeError, 'No account present')
-      end
+  end
+
+  describe 'can not manage funds if no account been created' do
+    
+    it 'can\'t deposit funds' do
+      expect { subject.deposit(100) }.to raise_error(RuntimeError, 'No account present')
     end
+  end
+
+   
 
 end
