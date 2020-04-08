@@ -38,8 +38,9 @@ describe Atm do
       expect(subject.withdraw(6, '1234', account, :exp_date, :account_status)).to eq expected_output
     end 
     it 'rejects withdrawal if the account is disabled' do
+      allow(account).to receive(:account_status).and_return(:disabled)
       expected_output = { status: false, message: 'account is disabled', date: Date.today }
-      expect(subject.withdraw(6, '1234', account, :exp_date, :disabled))
+      expect(subject.withdraw(6, '1234', account, :exp_date, :account_status)).to eq expected_output
     end
 end
 
