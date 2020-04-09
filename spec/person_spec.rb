@@ -42,6 +42,13 @@ describe Person do
         end
     end
 
+    describe 'can not manage funds if no account has been created' do
+        subject { described_class.new(name: 'Thomas', cash: 0, account: nil) }
+        it 'can\'t deposit funds' do
+            expect { subject.deposit(100) }.to raise_error(RuntimeError, 'Missing account status')
+        end
+    end
+
 end
 
 
