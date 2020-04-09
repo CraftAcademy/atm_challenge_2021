@@ -26,5 +26,10 @@ class Person
     def missing_account
         raise "Missing account status"
     end
+
+    public
+    def create_account
+        @account = Account.new(owner: Person)
+    end
 end
 
