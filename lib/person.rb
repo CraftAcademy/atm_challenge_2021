@@ -6,7 +6,16 @@ class Person
         set_account(attrs[:account])
     end
 
+    def deposit(amount)
+        @account == nil ? missing_account : deposit_funds(amount)
+    end
+
     private
+    def deposit_funds(amount)
+        @cash -= amount
+        #@account.balance += amount
+    end
+
     def set_name(obj)
         obj == nil ? missing_name : @name = obj
     end
@@ -30,7 +39,6 @@ class Person
 
     public
     def create_account
-        
         @account = Account.new(owner: self)
     end
 end
