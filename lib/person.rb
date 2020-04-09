@@ -1,9 +1,10 @@
 class Person
     attr_accessor :name, :cash, :account
     def initialize(attrs = {})
-        
         set_name(attrs[:name])
- end
+        set_cash(attrs[:cash])
+        set_account(attrs[:account])
+    end
 
     private
     def set_name(obj)
@@ -12,6 +13,18 @@ class Person
 
     def missing_name
         raise "A name is required"
+    end
+
+    def set_cash(amount)
+        @cash = amount
+    end
+
+    def set_account(status)
+        status == nil ? missing_account : @account = status
+    end
+
+    def missing_account
+        raise "Missing account status"
     end
 end
 
