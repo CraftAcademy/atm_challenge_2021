@@ -1,5 +1,5 @@
 class Person
-    attr_accessor :name, :cash, :account
+    attr_accessor :name, :pin_code, :cash, :account
     def initialize(attrs = {})
         set_name(attrs[:name])
         set_cash(attrs[:cash])
@@ -25,8 +25,11 @@ class Person
         account = @account
         amount = args[:amount]
         pin = args[:pin]
-        response = atm.withdraw(amount, pin, account)
+        exp_date = args[:exp_date] 
+        account_status = args[:account_status]
+        response = atm.withdraw(amount, pin, account, exp_date, account_status)
         response[:status] == true ? increase_cash(response) : response
+
     end
 
     def increase_cash(response)

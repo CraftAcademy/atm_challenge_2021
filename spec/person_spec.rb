@@ -46,6 +46,10 @@ describe Person do
             expect(subject.account.balance).to be 100
             expect(subject.cash).to be 0
         end
+        it 'can withdraw funds' do
+            command = lambda { subject.withdraw(amount: 100, pin: subject.pin_code, account: subject.account, atm: atm, exp_date: subject.account.exp_date, account_status: subject.account.account_status) }
+            expect(command.call).to be_truthy
+        end
     end
 
 
@@ -54,6 +58,7 @@ describe Person do
         it 'can\'t deposit funds' do
             expect { subject.deposit(100) }.to raise_error(RuntimeError, 'Missing account status')
         end
+        
     end
 
 end
