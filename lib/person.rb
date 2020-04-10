@@ -56,6 +56,10 @@ class Person
         raise "Missing account status"
     end
 
+    def missing_atm
+        raise "An ATM is required"
+    end
+
 
     public
     def create_account
