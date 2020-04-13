@@ -5,9 +5,9 @@ By Erik, Steve and Theodora
 An ATM application with 3 different classes written in Ruby
 
 ### The classes
-The ATM 
-A Person
-The person's Account 
+- The ATM</br>
+- A Person</br>
+- The person's Account 
 
 The ATM starts with 1000 dollars/Euros that it can deliver in 20, 10 or 5 denominations.
 
@@ -26,28 +26,30 @@ Run bundler to install gems.
 
 ## Instructions: 
 
-### irb</br>
+``` 
+#irb
 
-### Load the class files</br>
-require './lib/atm'</br>
-require './lib/person'</br>
-require './lib/account'</br>
-require 'date'</br>
+#Load the class files
+require './lib/atm'
+require './lib/person'
+require './lib/account'
+require 'date'
 
-### Initiate a person</br>
+#Initiate a person
 your_name = Person.new(name: 'name')
 
-### Initiate an account</br> 
+#Initiate an account
 your_name.create_account
 
-### Initate the ATM</br> 
+#Initate the ATM 
 Atm.new 
 
-### Deposit</br> 
+#Deposit
 your_name.deposit(amount)
 
-### Withdraw</br>
+#Withdraw
 your_name.withdraw(amount)
+```
 
 
 
@@ -57,6 +59,11 @@ Create UI for this application
 
 Refactor code.
 
+Tests are now at the state where we actually can replace instance doubles with class instances.
+
+Accounts 'balance' attribute should be moved from the spec file to the account.rb, so that account balance is accessible in IRB.
+
+Person's account status should probably be :inactive when initialized, and receive :active when the account is created.
 
 
 Licensed under MIT license
