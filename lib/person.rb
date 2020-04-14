@@ -1,10 +1,10 @@
 class Person
     attr_accessor :name, :pin_code, :cash, :account
+
     def initialize(attrs = {})
         @name = set_name(attrs[:name])
         @cash = set_cash(attrs[:cash])
-        @account = set_account(attrs[:account])
-        
+        @account = set_account(attrs[:account]) 
     end
 
     def deposit(amount)
@@ -34,7 +34,6 @@ class Person
         account_status = args[:account_status]
         response = atm.withdraw(amount, pin, account, exp_date, account_status)
         response[:status] == true ? increase_cash(response) : response
-
     end
 
     def increase_cash(response)
@@ -64,8 +63,4 @@ class Person
     def missing_atm
         raise "An ATM is required"
     end
-
-
-    
-    
 end

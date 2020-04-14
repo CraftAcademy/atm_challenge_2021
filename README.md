@@ -33,37 +33,34 @@ Run bundler to install gems.
 require './lib/atm'
 require './lib/person'
 require './lib/account'
-require 'date'
 
 #Initiate a person
-your_name = Person.new(name: 'name')
+your_name = Person.new(name: 'name', pin_code: <four digits>, account: :active)
 
 #Initiate an account
-your_name.create_account
+your_name.create_account(pin_code: <same as person's>, owner: your_name)
 
 #Initate the ATM 
-Atm.new 
+atm = Atm.new 
 
 #Deposit
-your_name.deposit(amount)
+your_name.deposit(amount: <amount>)
 
 #Withdraw
-your_name.withdraw(amount)
+your_name.withdraw(amount: <amount>, atm: atm, pin_code <your pin code>)
 ```
 
 
 
 ## Updates/improvment plans:
 
-Create UI for this application
-
-Refactor code.
-
-Tests are now at the state where we actually can replace instance doubles with class instances.
-
-Accounts 'balance' attribute should be moved from the spec file to the account.rb, so that account balance is accessible in IRB.
-
-Person's account status should probably be :inactive when initialized, and receive :active when the account is created.
+* Create UI for this application
+* Refactor code.
+* Tests are now at the state where we actually can replace instance doubles with class instances.
+* Accounts 'balance' attribute should be moved from the spec file to the account.rb, so that account balance is accessible in IRB.
+* Person's account status should probably be :inactive when initialized, and receive :active when the account is created. Or, it should receive the specific account as it's 'account:' attribute.
+* 'Missing account status' error message should be 'missing account' - the implementation needs modification accordingly
 
 
-Licensed under MIT license
+
+<br> Licensed under MIT license
