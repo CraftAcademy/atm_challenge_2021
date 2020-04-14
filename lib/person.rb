@@ -1,9 +1,10 @@
 class Person
     attr_accessor :name, :pin_code, :cash, :account
     def initialize(attrs = {})
-        set_name(attrs[:name])
-        set_cash(attrs[:cash])
-        set_account(attrs[:account])
+        @name = set_name(attrs[:name])
+        @cash = set_cash(attrs[:cash])
+        @account = set_account(attrs[:account])
+        
     end
 
     def deposit(amount)
@@ -12,6 +13,10 @@ class Person
 
     def withdraw(args = {})
         @account == nil ? missing_account : withdraw_funds(args)
+    end
+
+    def create_account
+        @account = Account.new(owner: self)
     end
 
     private
@@ -61,8 +66,6 @@ class Person
     end
 
 
-    public
-    def create_account
-        @account = Account.new(owner: self)
-    end
+    
+    
 end
