@@ -12,8 +12,13 @@ describe Atm do
 
     it 'allow withdraw if the account has enough balance.' do
         
-        expected_output = { status: true, message: 'success', date: Date.today, amount: 45, bills: [20, 20, 5] }
-        expect(subject.withdraw(45, '1234', account, :active, bills)).to eq expected_output
+        expected_output = {
+            status: true, 
+            message: 'success', 
+            date: Date.today, 
+            amount: 45, 
+            bills: [20, 20, 5]}
+        expect(subject.withdraw(45, '1234', account, :active)).to eq expected_output
     end
 
     it 'has 1000$ on initialize' do
