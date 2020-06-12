@@ -1,3 +1,5 @@
+require './lib/account'
+
 class Person
     attr_accessor :name, :cash, :account
 
@@ -7,6 +9,10 @@ class Person
         @account = nil
     end
 
+    def create_account
+        self.account = Account.new(owner: self)
+    end  
+
     def set_name(obj)
         obj == nil ? missing_name : @name = obj
     end
@@ -14,13 +20,6 @@ class Person
     def missing_name
         raise 'A name is required'
     end
-
-    def create_account
-        self.account = Account.new(owner: self)
-    end
-
-    def owner
-        
 end
 
 
