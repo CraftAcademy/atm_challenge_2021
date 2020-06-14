@@ -8,6 +8,7 @@ STANDARD_VALIDITY_YRS = 5
         @exp_date = set_expire_date
         @account_status = :active
         set_owner(attrs[:owner])
+        @balance = 0
     end
 
     def set_expire_date

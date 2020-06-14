@@ -9,7 +9,10 @@ describe Account do
     it 'check if pin has 4 digits' do
         pin_code_length = Math.log10(subject.pin_code).to_i + 1
         expect(pin_code_length).to eq 4
+    end
 
+    it 'is expected to have a balance equal to 0 on initialize' do
+        expect(subject.balance).to be 0
     end
 
     it 'is expected to have an expiry date on initialize' do
