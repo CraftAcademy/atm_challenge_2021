@@ -2,6 +2,16 @@
 
 ### The code
 
+3 classes have been creared: Atm, Account and Person.
+
+The code allows a user to do a withdrawal and deposit of a certain amount.
+
+It allows a user to get bills of 20, 10 and 5 out. 
+
+Pin code is generated at a random number between 1000 and 9999, with the requirement that the number of digits be equal to 4.
+
+The account has to have an owner for anything to work
+
 
 ### Dependencies
 
