@@ -18,6 +18,8 @@ class Atm
 
     private
 
+    
+
     def insufficient_funds_in_account?(amount, account)
             amount > account.balance
     end
