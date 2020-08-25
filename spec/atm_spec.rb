@@ -8,8 +8,6 @@ describe Atm do
 
         allow(account).to recevie(:balance=)       
     end
-
-
     it 'has 1000$ on initialize' do
         expect(subject.funds).to eq 1000
     end
@@ -19,7 +17,7 @@ describe Atm do
         subject.withdraw 50
         expect(subject.funds).to eq 950
     end
-    
+
 
     it 'allow withdraw if the account has enough balance.' do
 
