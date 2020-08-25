@@ -11,6 +11,7 @@ class Atm
             { status: false, message: 'insufficient funds in account', date: Date.today }
         when insufficient_funds_in_ATM?(amount)
             { status: false, message: 'insufficient funds in ATM', date: Date.today }
+            
       
         else
 
