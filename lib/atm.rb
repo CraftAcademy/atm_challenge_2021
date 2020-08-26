@@ -63,9 +63,12 @@ class Atm
                 amount -= bill
                 bills << bill
             end
+        end
+        bills
     end
+    
 
-    bills
+    
 end
 
 
