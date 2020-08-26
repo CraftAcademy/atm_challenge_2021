@@ -1,6 +1,13 @@
 require './lib/account.rb'
 
 describe Account do
+let(:person) {instance_double('Person', name: 'Sara')}
+subject { described_class.new({owner: person})}
+
+
+
+
+
 
     it 'check that pincode has 4 digits' do
         number = 1234
@@ -12,7 +19,7 @@ describe Account do
         expected_date = Date.today.next_year(5).strftime("%m/%y")
         expect(subject.exp_date).to eq expected_date
     end
-    
+
     it 'is expected to have :active status on initialize' do
         expect(subject.account_status).to eq :active
     end
@@ -21,4 +28,13 @@ describe Account do
         Account.deactivate(subject)
         expect(subject.account_status).to eq :deactivated
     end
+
+    it 'is expected to have an owner' do
+        expect(subject.account_owner).to eq person
+    end
+
+    it 'is expected to throw error if no owner is set' do
+        expect{described_class.new}.to raise_error 'an Account owner is required'
+    end
 end
+
