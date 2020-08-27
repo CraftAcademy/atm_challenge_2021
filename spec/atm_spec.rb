@@ -1,4 +1,5 @@
 require './lib/atm.rb'
+require 'pry'
 
 
 
