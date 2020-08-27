@@ -18,6 +18,6 @@ class Person
         name = nil ? missing_name : name  
     end
     def missing_name
-        raise 'a name is required'
+        raise 'A name is required'
     end
 end
