@@ -25,7 +25,7 @@ subject { described_class.new({owner: person})}
     end
 
     it 'is expected to have an owner' do
-        expect(subject.account_owner).to eq person
+        expect(subject.owner).to eq person
     end
 
     it 'is expected to throw error if no owner is set' do
