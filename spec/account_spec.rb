@@ -4,7 +4,7 @@ require 'date'
 describe Account do
 
     let(:person) {instance_double('Person', name: 'Kalle')}
-    subject { described_Class.new( owner: person ) }
+    subject { described_Class.new(owner: person) }
 
 
     it 'check if pin has 4 digits' do
