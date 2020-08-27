@@ -13,7 +13,7 @@ class Account
         set_owner(attrs[:owner])
     end
 
-<<<<<<< Updated upstream
+
     def deactivate
         @account_status = deactivate
     end
@@ -27,13 +27,11 @@ class Account
     def missing_owner
         raise 'An Account owner is required'
     end
-=======
+
     def deactivate(account)
         @account_status = :deactivate
     end
 
-
->>>>>>> Stashed changes
 
 end
 
