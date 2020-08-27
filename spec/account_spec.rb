@@ -29,7 +29,6 @@ subject { described_class.new({owner: person})}
     end
 
     it 'is expected to throw error if no owner is set' do
-    
         expect { described_class.new }.to raise_error 'An Account owner is required'
     end
 end
