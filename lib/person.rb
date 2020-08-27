@@ -1,5 +1,6 @@
 require 'date'
 require './lib/account.rb'
+require './lib/atm.rb'
 
 
 class Person 
@@ -17,6 +18,11 @@ class Person
         @account = Account.new(owner: self)
     end
 
+    def deposit(amount)
+        @account == nil ? missing_account : deposit_funds(amount)
+    end
+
+
     private
 
     def set_name(name)
@@ -27,10 +33,15 @@ class Person
         raise 'A name is required'
     end
 
+    def deposit_funds(amount)
+        @cash -= amount
+        @account.balance += amount
+    end
   
-
+    def missing_account
+        raise RuntimeError, 'No account present'
+    end
 
 end
-
 
 
