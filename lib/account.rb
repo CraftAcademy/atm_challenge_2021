@@ -14,7 +14,7 @@ class Account
     end
 
     def deactivate
-        @account_status = deactivate
+        @account_status = :deactivated
     end
 
     private
