@@ -2,6 +2,7 @@ require './lib/account'
 require './lib/atm'
 
 class Person
+
     attr_accessor :name, :cash, :account 
 
     def initialize(attrs = {}) 
@@ -11,12 +12,17 @@ class Person
         
         
     end
+
     def create_account 
         @account = Account.new(owner: self)
     end
+
+    private
+
     def set_name(name)
-        name = nil ? missing_name : name  
+        name == nil ? missing_name : @name = name
     end
+    
     def missing_name
         raise 'A name is required'
     end
