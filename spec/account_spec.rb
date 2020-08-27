@@ -4,11 +4,6 @@ describe Account do
 let(:person) {instance_double('Person', name: 'Sara')}
 subject { described_class.new({owner: person})}
 
-
-
-
-
-
     it 'check that pincode has 4 digits' do
         number = 1234
         number_length = Math.log10(number).to_i + 1
@@ -34,7 +29,8 @@ subject { described_class.new({owner: person})}
     end
 
     it 'is expected to throw error if no owner is set' do
-        expect{described_class.new}.to raise_error 'an Account owner is required'
+    
+        expect { described_class.new }.to raise_error 'An Account owner is required'
     end
 end
 
