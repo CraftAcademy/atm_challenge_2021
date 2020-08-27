@@ -1,16 +1,17 @@
 require 'date'
 
 class Account
-    attr_accessor :account_status, :owner, :exp_date, :pin_code
+    attr_accessor :account_status, :exp_date, :pin_code, :balance, :owner
    
 
     STANDARD_VALIDITY_YEARS = 5
 
-    def initialize
+    def initialize(attrs = {})
         @account_status = :active
         @pin_code = rand(1000..9999)
         @exp_date = Date.today.next_year(Account::STANDARD_VALIDITY_YEARS).strftime("%m/%y")
-        # set_owner(attrs[:owner])
+        @balance = 0
+        set_owner(attrs[:owner])
     end
 
     def deactivate
