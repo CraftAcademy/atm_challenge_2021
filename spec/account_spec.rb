@@ -3,9 +3,9 @@ require 'date'
 
 describe Account do
 
-    it 'is expected to have an owner' do
-        expect(subject.owner).to eq person
-    end
+let (:person) { instance_double('person', name: 'Kalle') }
+subject { described_Class.new({owner: person }) }
+
 
     it 'check if pin has 4 digits' do
         number = 1234
