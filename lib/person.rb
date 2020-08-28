@@ -9,8 +9,8 @@ class Person
 
     def initialize(attrs = {})
         @name = set_name(attrs[:name])
-        @cash = 0
-        @account = nil
+        @cash = 500                   #set_cash(attrs[:cash])
+        @account = nil               #set_account(attrs[:account])
 
     end
 
@@ -32,6 +32,14 @@ class Person
     def set_name(name)
         name == nil ? missing_name : name
     end
+
+    #def set_cash(cash)
+       # @cash = amount
+    #end
+
+    #def set_account(account)
+     #   status == nil ? missing_account : @account = status
+    #end
 
     def missing_name
         raise 'A name is required'
