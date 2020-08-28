@@ -17,6 +17,10 @@ class Person
         @account = Account.new(owner: self)
     end
 
+    def deposit(amount)
+        @account == nil ? missing_account : deposit_funds(amount)
+    end
+
     private
 
     def set_name(name)
@@ -26,4 +30,12 @@ class Person
     def missing_name
         raise 'A name is required'
     end
+
+    def deposit_funds(amount)
+        
+            @cash -= amount
+            @account.balance += amount
+    end
+
+
 end
