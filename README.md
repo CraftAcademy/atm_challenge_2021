@@ -7,6 +7,12 @@ This code is creating a visual ATM machine, we have created an test to see if it
 
 # Dependencies
 
+source 'https://rubygems.org'
+-gem 'rspec'
+-gem 'pry'
+
+Setup
+
 # Setup
 We created six differnt folders to test all the diffent elements
 
@@ -23,11 +29,3 @@ person_spec.rb
 person.rb
 
 We have added a Gemfile and installed RSpec to run our test.
-
-# Instructions
-
-# Acknowledgements
-
-# Updates/Improvements plans
-
-# License
