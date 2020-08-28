@@ -1,16 +1,33 @@
 # atm_challenge_2020
 
 
-The code
+# The code:
 
-Dependencies
+This code is creating a visual ATM machine, we have created an test to see if it's possible for a person to have a card and account to take out money from this machine. We have also created a pincode for the user so it's safe for the user to use the machine. 
 
-Setup
+# Dependencies
 
-Instructions
+# Setup
+We created six differnt folders to test all the diffent elements
 
-Acknowledgements
+To test our ATM machine:
+atm_spec.rb
+atm.rb
 
-Updates/Improvements plans
+To test our account:
+account_spec.rb
+account.rb
 
-License
+To test the person account:
+person_spec.rb
+person.rb
+
+We have added a Gemfile and installed RSpec to run our test.
+
+# Instructions
+
+# Acknowledgements
+
+# Updates/Improvements plans
+
+# License
