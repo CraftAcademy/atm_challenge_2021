@@ -10,5 +10,31 @@ Atm_challenge_2020 application can create an Atm, a Person that has an Account. 
 
 This is all possible by the 3 Ruby Classes, Atm, Person and Account which seperately holds methods for withdrawal, depostis and further
 
+##Dependencies
+source 'https://rubygems.org'
+
+-gem 'rspec'
+-gem 'pry'
+
+##Setup
+run irb/pry
+>require './lib/account.rb'
+>require './lib/atm.rb'
+>require './lib/person.rb'
+
+create a new person instance
+>your_name.Person.new(name: 'your_name', pincode: 1234, account: :active)
+
+Initiate an account
+>your_name.create_account
+
+Initiate the ATM
+>atm = Atm.new
+
+Deposit money
+>your_name.deposit()
+
+Withdraw
+>your_name.withdraw()
 
 

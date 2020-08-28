@@ -7,13 +7,8 @@ class Person
 
   def initialize(attrs = {})
     @name = set_name(attrs[:name])
-<<<<<<< HEAD
-    @cash = 500                   # set_cash(attrs[:cash])
-    @account = nil # set_account(attrs[:account])
-=======
     @cash = set_cash(attrs[:cash])
     @account = set_account(attrs[:account])
->>>>>>> 7fc7757a0dd04d9b79ae7d441baea292c6533a78
   end
 
   def create_account
@@ -34,15 +29,6 @@ class Person
     name.nil? ? missing_name : name
   end
 
-<<<<<<< HEAD
-  # def set_cash(cash)
-  # @cash = amount
-  # end
-
-  # def set_account(account)
-  #   status == nil ? missing_account : @account = status
-  # end
-=======
   def set_cash(amount)
     @cash = amount
   end
@@ -50,7 +36,6 @@ class Person
   def set_account(status)
     status.nil? ? missing_account : @account = status
   end
->>>>>>> 7fc7757a0dd04d9b79ae7d441baea292c6533a78
 
   def missing_name
     raise 'A name is required'

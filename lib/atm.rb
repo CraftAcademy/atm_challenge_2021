@@ -1,10 +1,5 @@
 require 'date'
-<<<<<<< HEAD
-# require './lib/account.rb'
-# require './lib/person.rb'
-=======
 
->>>>>>> 7fc7757a0dd04d9b79ae7d441baea292c6533a78
 class Atm
   attr_accessor :funds
 
