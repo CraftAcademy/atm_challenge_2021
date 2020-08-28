@@ -1,5 +1,5 @@
-require './lib/account'
-require './lib/atm'
+require './lib/account.rb'
+require './lib/atm.rb'
 
 class Person
   attr_accessor :name, :cash, :account
@@ -36,5 +36,4 @@ class Person
   def missing_account
     raise 'No account present'
   end 
-
 end

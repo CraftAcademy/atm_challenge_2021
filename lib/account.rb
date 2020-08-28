@@ -25,15 +25,7 @@ class Account
     obj.nil? ? missing_owner : @owner = obj
   end
 
-<<<<<<< HEAD
-    def deactivate(account)
-        @account_status = :deactivate
-    end
-
-
-=======
   def missing_owner
     raise 'An Account owner is required'
   end
->>>>>>> 12c9fa4511ffdb8c9fd67cada9cfbe22fde3bde9
 end
