@@ -22,6 +22,10 @@ class Person
         @account == nil ? missing_account : deposit_funds(amount)
     end
 
+    def withdraw(args = {})
+        @account == nil ? missing_account : withdraw_funds(args)    
+    end
+
     private
 
     def set_name(name)
@@ -31,16 +35,20 @@ class Person
     def missing_name
         raise 'A name is required'
     end
-end
-    
-    def missing_name
-        raise 'A name is required'
-    end
 
+   
     def deposit_funds(amount)
         
             @cash -= amount
             @account.balance += amount
+    end
+
+    def missing_account
+        raise RuntimeError, 'No account is present'
+    end
+
+    def no_account_is_set
+        raise RuntimeError, 'No account is set'
     end
 
 end
