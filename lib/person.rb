@@ -1,5 +1,6 @@
 require './lib/account'
 require './lib/atm'
+require 'pry'
 
 class Person
   attr_accessor :name, :cash, :account
@@ -18,7 +19,24 @@ class Person
     @account.nil? ? missing_account : deposit_funds(amount)
   end
 
+  def withdraw(args = {})
+    @account.nil? ? missing_account : withdraw_funds(args)
+  end
+
   private
+
+  def withdraw_funds(args)
+    args[:atm].nil? ? missing_atm : atm = args[:atm]
+    account = @account
+    amount = args[:amount]
+    pin = args[:pin]
+    response = atm.withdraw(amount, pin, account, atm)
+    response[:status] == true ? increase_cash(response) : response
+  end
+
+  def increase_cash(response)
+    @cash += response[:amount]
+  end
 
   def set_name(name)
     name.nil? ? missing_name : @name = name
@@ -35,5 +53,9 @@ class Person
 
   def missing_account
     raise 'No account present'
+  end
+
+  def missing_atm
+    raise 'An ATM is required'
   end
 end

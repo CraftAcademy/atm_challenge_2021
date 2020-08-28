@@ -49,6 +49,7 @@ describe Person do
     end
     it 'can withdraw funds' do
       command = -> { subject.withdraw(amount: 100, pin: subject.account.pin_code, account: subject.account, atm: atm) }
+
       expect(command.call).to be_truthy
     end
 
