@@ -30,6 +30,7 @@ run irb/pry
 #### create a new person instance
 >your_name.Person.new(name: 'your_name', pincode: 1234, account: :active)
 
+Starting with 500$
 
 #### Initiate an account
 >your_name.create_account
