@@ -3,7 +3,7 @@ require 'date'
 require 'pry'
 
 describe Account do
-  let(:person) { instance_double('Person', name: 'emi') }
+  let(:person) { instance_double('Person', name: 'emiliano') }
   subject { described_class.new({ owner: person }) }
 
   it 'is expected to have an owner' do
