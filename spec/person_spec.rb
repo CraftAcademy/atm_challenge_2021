@@ -38,6 +38,9 @@ describe Person do
       expect(subject.account.balance).to be 100
       expect(subject.cash).to be 0
     end
+
+    ##xq en estos 2 siguientes bloques tiene que pasarlo con command?
+    ##es porque el expect es distinto?
     it 'can withdraw funds' do
       command = -> { subject.withdraw(amount: 100, pin: subject.account.pin_code, account: subject.account, atm: atm_kista) }
       expect(command.call).to be_truthy
@@ -45,6 +48,13 @@ describe Person do
     it 'withdraw is expected to raise error if no ATM is passed in' do
       command = -> { subject.withdraw(amount: 100, pin: subject.account.pin_code, account: subject.account) }
       expect { command.call }.to raise_error 'An ATM is required'
+    end
+    it 'money is added to cash and deducted from account balance' do
+      subject.cash = 50
+      subject.deposit(50)
+      subject.withdraw(amount: 50, pin: subject.account.pin_code, account: subject.account, atm: atm_kista)
+      expect(subject.account.balance).to eq 0
+      expect(subject.cash).to eq 50
     end
   end
 
