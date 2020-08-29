@@ -1,6 +1,6 @@
-require './lib/person'
-require './lib/atm'
-require './lib/account'
+require './lib/person.rb'
+require './lib/atm.rb'
+require './lib/account.rb'
 require 'pry'
 
 describe Person do
@@ -15,9 +15,11 @@ describe Person do
   it 'is expected to raise an error if no name is set' do
     expect { described_class.new }.to raise_error 'A name is required'
   end
+
   it 'is expected to have a :cash attribute with the value of 0 on initialize' do
     expect(subject.cash).to eq 0
   end
+
   it 'is expected to have a :account attribute' do
     expect(subject.account).to be nil
   end
@@ -41,12 +43,14 @@ describe Person do
     it 'can deposit funds' do
       expect(subject.deposit(100)).to be_truthy
     end
+
     it 'funds are added to the account balance - deducted from cash' do
       subject.cash = 100
       subject.deposit(100)
       expect(subject.account.balance).to be 100
       expect(subject.cash).to be 0
     end
+
     it 'can withdraw funds' do
       command = -> { subject.withdraw(amount: 100, pin: subject.account.pin_code, account: subject.account, atm: atm) }
 
@@ -71,5 +75,6 @@ describe Person do
     it 'can\'t deposit funds' do
       expect { subject.deposit(100) }.to raise_error(RuntimeError, 'No account present')
     end
+
   end
 end
