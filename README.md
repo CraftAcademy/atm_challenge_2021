@@ -1,9 +1,14 @@
 # atm_challenge_2020
 
-
 # The code:
 
-This code is creating a visual ATM machine, we have created an test to see if it's possible for a person to have a card and account to take out money from this machine. We have also created a pincode for the user so it's safe for the user to use the machine. 
+This code has the aim to create an ATM machine that is capable of creating an account, withdraw money and deposit funds.
+Through 3 different files we: 
+
+-Created an ATM operator
+-Created an account base
+-Created a person class
+
 
 # Dependencies
 
@@ -11,21 +16,31 @@ source 'https://rubygems.org'
 -gem 'rspec'
 -gem 'pry'
 
-Setup
+The program has been written in ruby 2.7 and tested with Rspec 3.9
+
+
 
 # Setup
-We created six differnt folders to test all the diffent elements
 
-To test our ATM machine:
-atm_spec.rb
-atm.rb
+To try this code you should start IRB in yout terminal and call the file:
+type load  './lib/person.rb'
 
-To test our account:
-account_spec.rb
-account.rb
 
-To test the person account:
-person_spec.rb
-person.rb
+# Instructions
 
-We have added a Gemfile and installed RSpec to run our test.
+
+-Create a person in the program (Ex. yourname = Person(name: 'put_the_name_you_want_here')
+
+-Create an ATM (Ex. newmachine = Atm.new)
+
+-When this is done you have a few methods to play with
+
+-Create an account (ex. yourname.create_account
+
+-Deposit into the account (ex. yourname.deposit(integer) )
+
+-Deactivate the account (ex. yourname.account.deactivate)
+
+
+
+
