@@ -1,27 +1,60 @@
 
 
 
-## The code - What your code does
-  ###Building a virtual ATM
+## The code 
+- We split the challenge into 3 classes which are represented in different .rb files. 
+- Through the code the user has access to withdrawals and deposits.
+- The pin code the ATM takes is a 4 digits number and when an instance of the account class is created a random pin code is generated. 
+- Bills of 20, 10 and 5 out are available in the ATM
 
 ### Dependencies
-gem 'rspec'
-gem 'pry-byebug'
+Gemfile
+Rspec
+IRB
+Pry
+Bundler
 
-### Setup - How to run the code on your computer
+### Setup 
 Download the repo
 Run Bundle Install
 
-### - Instructions - The different steps to run the program
+### - Instructions 
+Instructions
 
+Load files
+```
+$ load 'person.rb'
+$ load 'atm.rb'
+$ load 'account.rb'
+```
+Create user
+```
+$ user = Person.new(name:'Name')
+```
+Create Account
+```
+$ user.create_account
+```
+Create ATM
+```
+$ atm = Atm.new
+```
+Deposit funds in account
+```
+$ user.deposit(100)
+```
+Withdraw funds from account
+```
+$ user.withdraw({amount:50, pin:user.pin_code, account:user.account, atm:atm})
+```
 
-### Acknowledgements - If you have used other peoples code you should link it here
-Thanks to Craft Academy guides and study material.
+### Acknowledgements 
+Craft Academy guides and study material.
 
-### Updates/Improvements plans - What updates or improvements you plan to do
-In future implementations we are gonna make the interactive layer of the application. 
+### Updates/Improvements plans 
+Build the front end for the virtual ATM.
 
-### License - What license you use and what the terms are for others to use your code.
+### License 
 All code is licensensed under MIT.
 
 
