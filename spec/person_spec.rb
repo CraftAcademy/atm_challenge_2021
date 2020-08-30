@@ -75,6 +75,5 @@ describe Person do
     it 'can\'t deposit funds' do
       expect { subject.deposit(100) }.to raise_error(RuntimeError, 'No account present')
     end
-
   end
 end
