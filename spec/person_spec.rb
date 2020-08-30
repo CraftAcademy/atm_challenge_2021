@@ -39,8 +39,6 @@ describe Person do
       expect(subject.cash).to be 0
     end
 
-    ##xq en estos 2 siguientes bloques tiene que pasarlo con command?
-    ##es porque el expect es distinto?
     it 'can withdraw funds' do
       command = -> { subject.withdraw(amount: 100, pin: subject.account.pin_code, account: subject.account, atm: atm_kista) }
       expect(command.call).to be_truthy
