@@ -4,7 +4,7 @@ class Atm
         @funds = 1000
     end
     def withdraw(amount)
-        @funds -= amount
+        @funds = amount
     end
 end
 
