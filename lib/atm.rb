@@ -33,7 +33,7 @@ class Atm
     def perform_transaction(amount,account)
         @funds = @funds - amount
         account.balance = account.balance - amount
-        return { status: true, message: 'success', date: Date.today , amount: amount}
+        return { status: true, account_status: :active, message: 'success', date: Date.today , amount: amount}
     end
     
     def insufficient_funds_in_atm?(amount)
