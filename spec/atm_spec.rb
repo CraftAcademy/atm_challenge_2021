@@ -34,4 +34,10 @@ describe Atm do
 
     end
 
+    it 'reject withdraw if the pin is wrong' do
+        expected_output = { status: false, message: 'wrong pin', date: 'today' }
+        expect(subject.withdraw(50, 9999, account)).to eq expected_output
+    end
+    
+
 end
