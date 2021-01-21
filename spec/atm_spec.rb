@@ -19,8 +19,13 @@ describe Atm do
     end
 
     it 'allow withdraw if the account has enough balance.' do
-        expected_output = { status: true, account_status: :active, message: 'success', date: Date.today, amount: 50}
+        expected_output = { status: true, account_status: :active, message: 'success', date: Date.today, amount: 50, billz: [20,20,10]}
         expect(subject.withdraw(50, '1234', account)).to eq expected_output
+    end
+
+    it 'rejects withdraw if amount is not divisible by 5' do
+        expected_output = { status: false, message: 'Amount needs to be divisible by 5', date: Date.today }
+        expect(subject.withdraw(7, '1234', account)).to eq expected_output
     end
 
     it 'rejects withdraw if account has insufficient funds' do

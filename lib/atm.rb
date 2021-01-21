@@ -19,6 +19,8 @@ class Atm
             { status: false, message: 'card expired', date: Date.today }
         when account_disabled?(account.account_status)
             {status: false, message: 'account disabled', date: Date.today }
+        when isnt_divisible_by_5?(amount)
+            { status: false, message: 'Amount needs to be divisible by 5', date: Date.today }
         else
             perform_transaction(amount, account)
         end
@@ -33,7 +35,7 @@ class Atm
     def perform_transaction(amount,account)
         @funds = @funds - amount
         account.balance = account.balance - amount
-        return { status: true, account_status: :active, message: 'success', date: Date.today , amount: amount}
+        return { status: true, account_status: :active, message: 'success', date: Date.today , amount: amount, billz: count_bills(amount)}
     end
     
     def insufficient_funds_in_atm?(amount)
@@ -51,6 +53,13 @@ class Atm
 
     def account_disabled?(account_status)
         account_status == :disabled
+    end
+
+    def isnt_divisible_by_5?(amount)
+        amount % 5 != 0
+    end
+
+    def count_bills(amount)
     end
 
 end
