@@ -1,4 +1,5 @@
 require 'date'
+require 'pry'
 
 class Atm
     attr_accessor :funds
@@ -42,6 +43,8 @@ class Atm
         pin_code != actual_pin
     end
 
-    
+    def card_expired?(exp_date)
+        Date.strptime(exp_date, '%m/%y') < Date.today
+    end
 
 end
