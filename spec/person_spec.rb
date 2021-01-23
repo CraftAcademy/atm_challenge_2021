@@ -80,7 +80,7 @@ describe Person do
             expect { withdraw_cmd.call }.to raise_error 'No ATM present'
         end
 
-        it 'adds funds to cash holdings - and deducts from account balace' do
+        it 'adds funds to cash holdings - and deducts from account balance' do
             subject.cash = 100
             subject.deposit(100)
             subject.withdraw(amount: 100, pin_code: subject.account.pin_code, account: subject.account, atm: atm)
