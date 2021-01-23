@@ -1,5 +1,6 @@
 require 'date'
 require './lib/person.rb'
+require './lib/atm.rb'
 
 describe Person do
 
@@ -58,6 +59,17 @@ describe Person do
             subject.deposit(100)
             expect(subject.cash).to be 0
             expect(subject.account.balance).to be 200
+        end
+    end
+
+    describe 'can withdraw funds from Atm' do
+        let(:atm) { Atm.new }
+
+        it 'using the withdraw method' do
+            amount = 100
+            subject.open_account
+            withdraw_cmd = lambda { subject.withdraw(amount: amount, pin_code: subject.account.pin_code, account: subject.account, atm: atm) }
+            expect(withdraw_cmd.call).to be_truthy
         end
 
     end

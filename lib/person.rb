@@ -26,7 +26,15 @@ class Person
         end
     end
 
+    def withdraw(args = {})
+        args[:atm] == nil ? raise_atm_error : withdraw_func(args)
+    end
+
     private
+
+    def withdraw_func(args)
+        true
+    end
 
     def set_name(name)
         name == nil ? raise_name_error : name
