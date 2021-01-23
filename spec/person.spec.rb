@@ -52,6 +52,14 @@ describe Person do
             expect { subject.deposit(100) }.to raise_error 'No account present'
         end
 
+        it 'and adds funds to account balance - and deducts from cash holding' do
+            subject.open_account
+            subject.cash = 100
+            subject.deposit(100)
+            expect(subject.cash).to be 0
+            expect(subject.account.balance).to be 200
+        end
+
     end
 
 end
