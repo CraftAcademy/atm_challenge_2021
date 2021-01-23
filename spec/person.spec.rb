@@ -36,8 +36,12 @@ describe Person do
 
     describe 'can manage funds if an account been created' do
         
+        before { subject.open_account }
+        it 'can deposit funds' do
+            expect(subject.deposit(100)).to be_truthy
+        end
 
-        
+
     end
 
 end

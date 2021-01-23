@@ -15,6 +15,11 @@ class Person
         @account = Account.new({owner: @name})
     end
 
+    def deposit(amount)
+        @cash += amount
+        @account.balance -= amount
+    end
+
     private
 
     def set_name(name)
