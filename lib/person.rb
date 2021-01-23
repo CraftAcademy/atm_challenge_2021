@@ -33,7 +33,16 @@ class Person
     private
 
     def withdraw_func(args)
-        true
+        amount = args[:amount]
+        pin_code = args[:pin_code]
+        account = @account
+        atm = args[:atm]
+        atm_response = atm.withdraw(amount, pin_code, account)
+        atm_response[:status] == true ? get_money(amount) : atm_response
+    end
+
+    def get_money(amount)
+        @cash += amount
     end
 
     def set_name(name)
