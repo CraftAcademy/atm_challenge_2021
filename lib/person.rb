@@ -44,4 +44,8 @@ class Person
         raise 'A name is required'
     end
 
+    def raise_atm_error
+        raise 'No ATM present'
+    end
+
 end

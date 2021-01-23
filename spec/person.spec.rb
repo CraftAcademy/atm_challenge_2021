@@ -64,12 +64,20 @@ describe Person do
 
     describe 'can withdraw funds from Atm' do
         let(:atm) { Atm.new }
+        before do
+            subject.open_account
+        end
 
         it 'using the withdraw method' do
             amount = 100
-            subject.open_account
             withdraw_cmd = lambda { subject.withdraw(amount: amount, pin_code: subject.account.pin_code, account: subject.account, atm: atm) }
             expect(withdraw_cmd.call).to be_truthy
+        end
+
+        it 'cannot withdraw if no atm is present' do
+            amount = 100
+            withdraw_cmd = lambda { subject.withdraw(amount: amount, pin_code: subject.account.pin_code, account: subject.account) }
+            expect { withdraw_cmd.call }.to raise_error 'No ATM present'
         end
 
     end
