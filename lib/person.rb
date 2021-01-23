@@ -16,8 +16,14 @@ class Person
     end
 
     def deposit(amount)
-        @cash += amount
-        @account.balance -= amount
+        if @cash < amount
+            raise 'Not enough cash'
+        elsif @account == nil
+            raise 'No account present'
+        else
+            @cash -= amount
+            @account.balance += amount
+        end
     end
 
     private

@@ -36,11 +36,21 @@ describe Person do
 
     describe 'can manage funds if an account been created' do
         
-        before { subject.open_account }
         it 'can deposit funds' do
+            subject.open_account
+            subject.cash = 100
             expect(subject.deposit(100)).to be_truthy
         end
 
+        it 'but raises error if theres not enough cash to deposit' do
+            subject.open_account
+            expect { subject.deposit(100) }.to raise_error 'Not enough cash'
+        end
+
+        it 'but raises error if no account has been created on deposit' do
+            subject.cash = 100
+            expect { subject.deposit(100) }.to raise_error 'No account present'
+        end
 
     end
 
