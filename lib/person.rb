@@ -16,14 +16,13 @@ class Person
         @account = Account.new({owner: @name})
     end
 
-    def deposit(amount)
-        if @cash < amount
+    def deposit(args = {})
+        if @cash < args[:amount]
             raise 'Not enough cash'
         elsif @account == nil
             raise 'No account present'
         else
-            @cash -= amount
-            @account.balance += amount
+            deposit_func(args)
         end
     end
 
@@ -40,6 +39,16 @@ class Person
         atm = args[:atm]
         atm_response = atm.withdraw(amount, pin_code, account)
         atm_response[:status] == true ? get_money(amount) : atm_response
+        atm_response
+    end
+
+    def deposit_func(args)
+        args[:atm] == nil ? throw_atm_error : atm = args[:atm]
+        amount = args[:amount]
+        @account.balance += amount
+        @cash -= amount
+        atm.funds += amount
+        { status: true, message: 'Deposit was successful', amount: amount, date: Date.today }
     end
 
     def get_money(amount)
