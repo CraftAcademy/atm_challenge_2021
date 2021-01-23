@@ -14,6 +14,10 @@ describe Account do
         expect { described_class.new }.to raise_error 'Account doesnt have an owner'
     end
 
+    it 'has a balance of 100 on initialize' do
+        expect(subject.balance).to eq 100
+    end
+
     it 'check the length of the pin code' do  
         expect(subject.pin_code.to_s.length).to eq 4
     end
