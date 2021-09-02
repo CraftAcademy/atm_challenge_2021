@@ -1,21 +1,27 @@
 class Account
   STANDARD_VALIDITY_YRS = 5
-  attr_accessor :account_status
+  attr_accessor :account_status, :owner, :pin_code, :balance, :exp_date
 
-  def initialize
+  def initialize(attrs = {})
     @account_status = :active
+    set_owner(attrs[:owner])
   end
 
   def set_expire_date
     Date.today.next_year(Account::STANDARD_VALIDITY_YRS).strftime('%m/%y')
-    
   end
 
   private
 
   def self.deactivate(account)
-   account.account_status = :deactivated 
+    account.account_status = :deactivated
   end
 
+  def set_owner(obj)
+    obj.nil? ? missing_owner : @owner = obj
+  end
 
+  def missing_owner
+    raise 'An Account owner is required'
+  end
 end
