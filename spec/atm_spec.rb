@@ -1,6 +1,6 @@
-require_relative '../lib/atm.rb'
+require_relative '../lib/atm'
 
-describe Atm do 
+describe Atm do
   let(:account) { instance_double('Account') }
 
   before do
@@ -17,13 +17,13 @@ describe Atm do
     expected_output = { status: false, message: 'insufficient funds', date: Date.today }
     expect(subject.withdraw(105, account)).to eq expected_output
   end
-  
+
   it 'has 1000$ on initialize' do
     expect(subject.funds).to eq 1000
   end
 
   it 'funds are reduced at withdraw' do
-    subject.withdraw(50, account) 
+    subject.withdraw(50, account)
     expect(subject.funds).to eq 950
   end
 end
