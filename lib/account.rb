@@ -27,6 +27,6 @@ class Account
   end
 
   def set_pin
-    rand(0000..9999)
+    rand(1000..9999)
   end
 end

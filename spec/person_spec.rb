@@ -1,4 +1,5 @@
 require_relative '../lib/person'
+require_relative '../lib/account'
 
 describe Person do
   subject { described_class.new(name: 'Thomas') }

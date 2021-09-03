@@ -1,3 +1,5 @@
+require_relative 'account'
+
 class Person
   STARTING_CASH = 0
   attr_accessor :name, :cash, :account
@@ -5,6 +7,11 @@ class Person
   def initialize(attrs = {})
     set_name(attrs[:name])
     @cash = Person::STARTING_CASH
+  end
+
+
+  def create_account
+    @account = Account.new(owner: self)
   end
 
   private
