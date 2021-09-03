@@ -52,7 +52,7 @@ describe Person do
     end
 
     it 'is expected to raise an error when no ATMis passed in to withdraw' do
-      ommand = lambda { subject.withdraw(amount: 100, pin: subject.account.pin_code, account: subject.account) }
+      command = lambda { subject.withdraw(amount: 100, pin: subject.account.pin_code, account: subject.account) }
       expect { command.call }.to raise_error 'An ATM is required'
     end
 
