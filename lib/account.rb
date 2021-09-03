@@ -8,13 +8,16 @@ class Account
     set_owner(attrs[:owner])
     @pin_code = set_pin
     @balance = ACCOUNT_BALANCE_WHEN_CREATED
+    @exp_date = set_expire_date
   end
+
+
+
+  private
 
   def set_expire_date
     Date.today.next_year(Account::STANDARD_VALIDITY_YRS).strftime('%m/%y')
   end
-
-  private
 
   def self.deactivate(account)
     account.account_status = :deactivated
