@@ -1,9 +1,14 @@
 class Person
- attr_accessor :name
+
+ STARTING_CASH = 0
+ attr_accessor :name, :cash
 
  def initialize(attrs = {})
     set_name(attrs[:name])
+    @cash = Person::STARTING_CASH
  end
+
+ 
 
 
  private
