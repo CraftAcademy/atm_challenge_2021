@@ -31,7 +31,7 @@ describe Person do
     end
   end
 
-  describe 'can manage funds if an account has beren created' do
+  describe 'can manage funds if an account has been created' do
     let(:atm) { Atm.new }
     before { subject.create_account }
     it 'is expected to be able to deposit funds' do
