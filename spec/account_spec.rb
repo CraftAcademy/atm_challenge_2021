@@ -25,5 +25,10 @@ describe Account do
   it 'is expected to raise error if no owner is set' do
     expect { described_class.new }.to raise_error 'An Account owner is required'
   end
+
+  it 'is expected to have a pin of four digits' do
+    expected_pin_length = 4
+    expect(Math.log10(subject.pin_code).to_i + 1).to eq expected_pin_length
+  end
 end
 

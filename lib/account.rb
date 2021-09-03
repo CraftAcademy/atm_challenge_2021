@@ -5,6 +5,7 @@ class Account
   def initialize(attrs = {})
     @account_status = :active
     set_owner(attrs[:owner])
+    @pin_code = set_pin
   end
 
   def set_expire_date
@@ -23,5 +24,9 @@ class Account
 
   def missing_owner
     raise 'An Account owner is required'
+  end
+
+  def set_pin
+    rand(0000..9999)
   end
 end
