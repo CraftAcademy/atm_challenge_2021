@@ -38,10 +38,10 @@ describe Person do
         expect(subject.deposit(100)).to be_truthy
     end
 
-    it 'is expected to when funds are added to the account balance - they are deducted from cash' do
+    it 'is expected that when funds are added to the account balance - they are deducted from cash' do
       subject.cash = 100
       subject.deposit(100)
-      expect(subject.account.balance).to be 100
+      expect(subject.account.balance).to be 1100
       expect(subject.cash).to be 0
     end
 
