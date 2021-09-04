@@ -54,4 +54,8 @@ class Person
   def missing_atm
     raise ArgumentError, 'An ATM is required'
   end
+
+  def missing_account
+    raise 'No account present'
+  end
 end
