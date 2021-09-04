@@ -8,22 +8,21 @@ describe Atm do
     allow(account).to receive(:balance=)
   end
 
-
   it 'is expected to reject withdraw if the card is expired' do
     allow(account).to receive(:exp_date).and_return('12/15')
-    expected_output = { status: false, message: 'card expired', date: Date.today,}
+    expected_output = { status: false, message: 'card expired', date: Date.today }
     expect(subject.withdraw(6, '1234', account)).to eq expected_output
   end
 
-
   it 'is expected to allow withdrawal if the account has enough balance' do
-    expected_output = { 
-      status: true, 
-      message: 'success', 
-      date: Date.today, 
-      amount: 45, 
-      account_status: :active, 
-      bills: [20, 20, 5]}
+    expected_output = {
+      status: true,
+      message: 'success',
+      date: Date.today,
+      amount: 45,
+      account_status: :active,
+      bills: [20, 20, 5]
+    }
     expect(subject.withdraw(45, '1234', account)).to eq expected_output
   end
 
@@ -49,7 +48,7 @@ describe Atm do
 
   it 'is expected to reject withdraw if the pin is wrong' do
     expected_output = { status: false, message: 'wrong pin', date: Date.today }
-    expect(subject.withdraw(50, 9999 , account)).to eq expected_output
+    expect(subject.withdraw(50, 9999, account)).to eq expected_output
   end
 
   it 'it is expected to reject withdraw if the account is disabled' do
@@ -57,5 +56,4 @@ describe Atm do
     expected_output = { status: false, message: 'disabled account', date: Date.today }
     expect(subject.withdraw(45, '1234', account)).to eq expected_output
   end
-
 end

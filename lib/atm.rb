@@ -23,7 +23,6 @@ class Atm
     else
       perform_transaction(amount, account)
     end
-
   end
 
   private

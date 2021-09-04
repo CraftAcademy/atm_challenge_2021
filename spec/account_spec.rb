@@ -1,11 +1,11 @@
-require_relative '../lib/account.rb'
+require_relative '../lib/account'
 
 describe Account do
   let(:person) { instance_double('Person', name: 'Thomas') }
-  subject { described_class.new({owner: person}) }
+  subject { described_class.new({ owner: person }) }
 
   it 'is expected to have an expiry date on initialization' do
-    expected_date = Date.today.next_year(5).strftime("%m/%y")
+    expected_date = Date.today.next_year(5).strftime('%m/%y')
     expect(subject.set_expire_date).to eq expected_date
   end
 
@@ -31,4 +31,3 @@ describe Account do
     expect(Math.log10(subject.pin_code).to_i + 1).to eq expected_pin_length
   end
 end
-
