@@ -18,10 +18,10 @@ Feel free to run `rspec` to see the output of our tests in your terminal.
 
 ### Instructions
 This programme is a prototype, as such it lacks a visual layer. The way to run it is through `irb` in your terminal. Make sure you are still in the `atm_challenge_2021` directory and run `irb`. Now we can load in our classes:
-'''ruby
+```ruby
 > load('./lib/person.rb')
  => true 
-'''
+```
 The class `Person` requires `Account` and `Atm`, so no need to load them in separately.
 
 ### Acknowledgements - If you have used other peoples code you should link it here
