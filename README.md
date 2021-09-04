@@ -39,7 +39,7 @@ Let's have a closer look at `bob`:
 > bob
  => #<Person:0x00007fb608a6d608 @account=nil, @cash=0, @name="Bob">
 ```
-Looks like Bob doesn't have any cash. Nor does he have an account. Luckily for Bob, out program allow him to create an account using a `.create_account` method:
+Looks like Bob doesn't have any cash. Nor does he have an account. Luckily for Bob, our program allows him to create an account using a `.create_account` method:
 ```ruby
 > bob.create_account
  => 
@@ -54,7 +54,7 @@ Looks like Bob doesn't have any cash. Nor does he have an account. Luckily for B
    @name="Bob">,
  @pin_code=9093> 
 ```
-Luckily for Bob, the Craft Academy Bank gives all new customers $1000 when they open an account. But Bob is not satisfied yet. Bob needs to carry some cash. What's a Bob to do? He needs an ATM to withdraw it. To withdraw money from his account, he needs an ATM. The `.withdraw` method in the `Account` class requires an ATM to be specified as part of the arguments as follows:
+In an even greater stroke of luck for Bob, the Craft Academy Bank gives all new customers $1000 when they open an account. But Bob is not satisfied yet. Bob needs to carry some cash. What's a Bob to do? He needs an ATM to withdraw it. To withdraw money from his account, he needs an ATM. The `.withdraw` method requires an ATM to be specified as part of the arguments as follows:
 ```ruby
 > bob.withdraw(amount: 75, pin_code: 9093, account: bob.account)
 /Users/max/craftAcademy/atm_challenge_2021/lib/person.rb:55:in `missing_atm': An ATM is required (ArgumentError)
