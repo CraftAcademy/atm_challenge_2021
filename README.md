@@ -22,7 +22,19 @@ This programme is a prototype, as such it lacks a visual layer. The way to run i
 > load('./lib/person.rb')
  => true 
 ```
-The class `Person` requires `Account` and `Atm`, so no need to load them in separately.
+The class `Person` requires `Account` and `Atm`, so no need to load their respective files in separately.
+
+Let's instantiate a person and assign them to a variable, `bob`.
+```ruby
+> bob = Person.new(name: 'Bob')
+ => #<Person:0x00007f94a62ccad0 @account=nil, @cash=0, @name="Bob"> 
+```
+Now when you instantiate `bob` you need to provide the Person class with a name. Forgetting to pass in a name should provide you with the following error message:
+```ruby
+> no_name = Person.new
+/Users/usr/atm_challenge_2021/lib/person.rb:33:in `missing_name': A name is required (RuntimeError)
+```
+
 
 ### Acknowledgements - If you have used other peoples code you should link it here
 
