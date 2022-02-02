@@ -17,10 +17,10 @@ describe Atm do
 
     subject { Atm.new }
 
-    #it 'is expected to reduce funds on withdraw' do
-        #subject.withdraw 50
-        #expect(subject.funds).to eq 950
-    #end
+    it 'is expected to reduce funds on withdraw' do
+        subject.withdraw 50
+        expect(subject.funds).to eq 950
+    end
 
     # or using a slightly more precise matcher:
 
