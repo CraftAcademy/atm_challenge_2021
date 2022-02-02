@@ -17,6 +17,8 @@ class Atm
       { status: false, message: 'wrong pin', date: Date.today }
     when card_expired?(account.exp_date)
       { status: false, message: 'card expired', date: Date.today }
+    when account_status?(account.account_status)
+      { status: false, message: 'account is not active', date: Date.today }
     else
       perform_transaction(amount, account)
     end
@@ -44,5 +46,9 @@ end
     @funds -= amount
     account.balance = account.balance - amount
     { status: true, message: 'success', date: Date.today, amount: amount }
+  end
+
+  def account_status?(account_status)
+    account_status != :active
   end
 end
