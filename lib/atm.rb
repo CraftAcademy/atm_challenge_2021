@@ -27,7 +27,7 @@ class Atm
   private
 
   def account_status?(account_status)
-    account_status == :active
+    account_status != :active
   end
   
   def card_expired?(exp_date)
