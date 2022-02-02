@@ -13,7 +13,7 @@ class Atm
         case
 
         when insufficient_funds_in_account?(amount, account)
-            { status: false, message: 'insufficient funds in account', date: Date.today }
+            { status: false, message: 'insufficient funds', date: Date.today }
 
         when insufficient_funds_in_atm?(amount)
             { status: false, message: 'insufficient funds in ATM', date: Date.today }
@@ -24,8 +24,8 @@ class Atm
         when card_expired?(account.exp_date)
             { status: false, message: 'card expired', date: Date.today}
 
-        when account_disabled?(account.account_status)
-            { status: false, message: 'account is disabled', date: Date.today }
+        when account_status?(account.account_status)
+            { status: false, message: 'account not active', date: Date.today }
         
         else
 
@@ -37,14 +37,21 @@ class Atm
 
     private
 
-    def insufficient_funds_in_account?(amount, account)
-        amount > account.balance
-    end
-
     def perform_transaction(amount, account)
         @funds -= amount
         account.balance = account.balance - amount
-        { status: true, message: 'success', date: Date.today, amount: amount, account_status: :active, bills: add_bills(amount) }
+        {
+            status: true,
+            message: 'success',
+            date: Date.today,
+            amount: amount,
+            account_status: :active,
+            bills: add_bills(amount)
+        }
+    end
+
+    def insufficient_funds_in_account?(amount, account)
+        amount > account.balance
     end
 
     def insufficient_funds_in_atm?(amount)
@@ -52,14 +59,14 @@ class Atm
     end
 
     def incorrect_pin?(pin_code, actual_pin)
-        pin_code != actualt_pin
+        pin_code != actual_pin
     end
 
     def card_expired?(exp_date)
         Date.strptime(exp_date, '%m/%y') < Date.today
     end
 
-    def account_disabled?(account_status)
+    def account_status?(account_status)
         account_status != :active
     end
 
@@ -72,7 +79,7 @@ class Atm
                 bills << bill
             end
         end
-            bills
+        bills
     end
 
 end
