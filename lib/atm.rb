@@ -1,5 +1,4 @@
 require 'date'
-
 class Atm
   attr_accessor :funds
 
@@ -8,11 +7,10 @@ class Atm
   end
 
   def withdraw(amount, account)
-    case
-    when insufficient_funds_in_account?(amount, account)
-        return
+    if insufficient_funds_in_account?(amount, account)
+      nil
     else
-        perform_transaction(amount, account)
+      perform_transaction(amount, account)
     end
   end
 

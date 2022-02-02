@@ -3,27 +3,19 @@ require './lib/atm'
 describe Atm do
   subject { Atm.new } 
   let(:account) { instance_double('Account') }
-  it 'is expected to hold $1000 when instantiated' do
-    expect(subject.funds).to eq 1000
-  end
-
-end
-
-describe Atm do
-  subject { Atm.new }
-  let(:account) { instance_double('Account')}
-
   before do
     allow(account).to receive(:balance).and_return(100)
     allow(account).to receive(:balance=)
+  end
+
+  it 'is expected to hold $1000 when instantiated' do
+    expect(subject.funds).to eq 1000
   end
 
   it 'is expected to reduce funds on withdraw' do
     subject.withdraw 50, account
     expect(subject.funds).to eq 950
   end
-
-  # or using a slightly more precise matcher:
 
   it 'is expected to reduce funds on withdraw' do
     expect { subject.withdraw 50, account }
@@ -39,4 +31,10 @@ describe Atm do
     }
     expect(subject.withdraw(45, account)).to eq expected_output
   end
+
+  it 'is expected to reject an withdrawal if account has insufficient funds' do
+    expected_output = { status: false, message: 'insufficient funds', date: Date.today }
+    expect(subject.withdraw(105, account)).to eq expected_output
+  end
+  
 end
