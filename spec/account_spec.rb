@@ -1,8 +1,7 @@
 require './lib/account'
 
 describe Account do
-  let(:person) { instance_double( 'person', name: 'Roberto' ) }
-  # and modify our `subject`
+  let(:person) { instance_double( 'person', name: 'Anastasia' ) }
   subject { described_class.new({owner: person}) }
 
   it 'is expected to have an owner' do

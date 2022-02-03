@@ -1,11 +1,13 @@
+require 'date'
+
 class Account
-  require 'date'
-  attr_accessor :pin_code, :exp_date, :account_status, :balance, :owner
+  attr_accessor :account_status, :balance, :owner, :pin_code, :exp_date
 
   def initialize(attrs = {})
     @pin_code = generate_pin
     @exp_date = set_expire_date
     @account_status = :active
+    @balance = 0
     set_owner(attrs[:owner])
   end
 
