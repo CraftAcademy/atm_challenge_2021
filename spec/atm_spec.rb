@@ -3,7 +3,7 @@ require './lib/atm'
 describe Atm do
   subject { Atm.new }
   let(:account) do
-    instance_double('Account', pin_code: '1234', exp_date: '04/25', account_status: :active, balance: 1000)
+    instance_double('Account', pin_code: '1234', exp_date: '02/27', account_status: :active, balance: 1000)
   end
   before do
     allow(account).to receive(:balance).and_return(100)
@@ -46,7 +46,7 @@ describe Atm do
   end
 
   it 'reject withdraw if the card is expired' do
-    allow(account).to receive(:exp_date).and_return('12/15')
+    allow(account).to receive(:exp_date).and_return('12/21')
     expected_output = { status: false, message: 'card expired', date: Date.today }
     expect(subject.withdraw(6, '1234', account)).to eq expected_output
   end
