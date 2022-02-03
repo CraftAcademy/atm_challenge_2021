@@ -5,7 +5,7 @@ describe Atm do
     
     subject { Atm.new }
     
-    let(:account) { instance_double('Account', pin_code: '1234', exp_date: '04/25', account_status: :active, balance: 1000) }
+    let(:account) { instance_double('Account', pin_code: '1234', exp_date: '04/2025', account_status: :active, balance: 1000) }
     
     before do
         allow(account).to receive(:balance).and_return(100)

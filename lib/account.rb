@@ -30,4 +30,8 @@ class Account
         raise "An Account owner is required"
     end
 
+    def set_pin_code
+        rand(1000..9999)
+    end
+
 end
