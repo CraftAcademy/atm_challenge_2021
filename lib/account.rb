@@ -6,6 +6,7 @@ class Account
     @pin_code = generate_pin
     @exp_date = set_expire_date
     @account_status = :active
+    @balance = 0
     set_owner(attrs[:owner])
   end
 
