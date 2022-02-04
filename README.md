@@ -77,6 +77,5 @@ As an ATM operator
 In order to keep track of our costumers     
 We want to assign each account to a separate person
 ```
-```
+
 ![rspectest-atm-challenge-crop](https://user-images.githubusercontent.com/15264325/152498119-fe1129ff-04ba-4872-ab40-7f838f618289.png)
-```
